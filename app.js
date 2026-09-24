@@ -1,0 +1,118 @@
+const progress = { phish:false, quiz:false, risk:false, analyzer:false };
+
+function updateProgress(){
+  const done = Object.values(progress).filter(Boolean).length;
+  const pct = Math.round(done / Object.keys(progress).length * 100);
+  document.getElementById("progressBar").style.width = pct + "%";
+  document.getElementById("progressText").textContent = pct === 100 ? "🏆 PhishAware Training Complete!" : `Training progress: ${pct}%`;
+  Object.keys(progress).forEach(k => {
+    if(progress[k]) document.getElementById("badge-"+k)?.classList.add("unlocked");
+  });
+}
+
+function judgeEmail(isPhish){
+  const el = document.getElementById("challengeResult");
+  el.classList.remove("hidden");
+  if(isPhish){
+    el.innerHTML = `<h3>🎉 Correct! You spotted the phish.</h3>
+    <p>Warning signs include the suspicious sender domain, urgent language, a request to verify an account, and an unexpected login link.</p>`;
+    progress.phish = true; updateProgress();
+  } else {
+    el.innerHTML = `<h3>⚠️ Not quite.</h3><p>This simulated email contains several phishing warning signs: urgency, an unusual sender domain, and a request to verify account information through a link.</p>`;
+  }
+}
+
+const quiz = [
+  {q:"Which is a common phishing warning sign?", a:["Unexpected urgency","A normal greeting","A company logo","Correct spelling"], c:0},
+  {q:"What should you do before clicking an unexpected login link?", a:["Click quickly","Verify the sender and destination independently","Forward it to everyone","Enter your password"], c:1},
+  {q:"Which password practice is safer?", a:["Reuse one password","Use short passwords","Use unique strong passwords","Share passwords with friends"], c:2},
+  {q:"What does MFA add?", a:["Another verification factor","A public password","A faster internet connection","A shorter username"], c:0},
+  {q:"A message unexpectedly asks for sensitive information. What is the safer response?", a:["Send it immediately","Verify the request through a trusted channel","Post it online","Ignore all security warnings"], c:1}
+];
+let qi=0, score=0;
+
+function renderQuiz(){
+  const box=document.getElementById("quizBox");
+  if(qi>=quiz.length){
+    box.innerHTML=`<h3>🛡️ ${score}/${quiz.length} — ${score>=4?"Cyber Defender!":"Keep Learning!"}</h3><p>You completed the PhishAware quiz.</p><button class="btn primary" onclick="restartQuiz()">Try Again</button>`;
+    progress.quiz=true; updateProgress(); return;
+  }
+  const item=quiz[qi];
+  box.innerHTML=`<p>Question ${qi+1} of ${quiz.length}</p><h3>${item.q}</h3>${item.a.map((x,i)=>`<button class="quiz-option" onclick="answerQuiz(${i})">${x}</button>`).join("")}<div id="quizFeedback"></div>`;
+}
+function answerQuiz(i){
+  const item=quiz[qi], f=document.getElementById("quizFeedback");
+  if(i===item.c){score++;f.innerHTML="<p>✅ Correct!</p>";} else f.innerHTML=`<p>❌ Not quite. The best answer is: <b>${item.a[item.c]}</b>.</p>`;
+  document.querySelectorAll(".quiz-option").forEach(b=>b.disabled=true);
+  setTimeout(()=>{qi++;renderQuiz()},850);
+}
+function restartQuiz(){qi=0;score=0;renderQuiz()}
+
+function calculateRisk(){
+  const score=["r1","r2","r3","r4"].reduce((s,id)=>s+Number(document.getElementById(id).value),0);
+  const el=document.getElementById("riskResult"); el.classList.remove("hidden");
+  if(score<=1) el.innerHTML="<h3>🟢 LOW RISK</h3><p>Few of these warning signs were selected, but always verify unexpected messages before acting.</p>";
+  else if(score<=2) el.innerHTML="<h3>🟡 MEDIUM RISK</h3><p>Some phishing indicators are present. Verify the sender and avoid unexpected links.</p>";
+  else el.innerHTML="<h3>🔴 HIGH RISK</h3><p>Multiple common phishing indicators are present. Do not provide information or use suspicious links without independent verification.</p>";
+  progress.risk=true;updateProgress();
+}
+
+function analyzeEmail(){
+  const text=document.getElementById("emailInput").value.trim();
+  if(!text){alert("Paste an email first.");return}
+  const status=document.getElementById("scanStatus"), result=document.getElementById("analysisResult");
+  status.classList.remove("hidden");result.classList.add("hidden");
+  status.innerHTML="🔍 Analyzing educational warning signs...";
+  setTimeout(()=>{
+    const lower=text.toLowerCase();
+    const checks=[
+      ["Urgent or threatening language",/(urgent|immediately|suspend|verify now|act now|final warning|expire)/i.test(text)],
+      ["Password or login request",/(password|login|log in|sign in|credential)/i.test(text)],
+      ["Personal or financial information request",/(social security|ssn|bank|credit card|payment|personal information)/i.test(text)],
+      ["Link-related language",/(click|link|http|www\.|verify account)/i.test(text)],
+      ["Unexpected attachment language",/(attachment|attached|download)/i.test(text)],
+      ["Reward or payment pressure",/(gift card|prize|winner|wire transfer|invoice|refund)/i.test(text)]
+    ];
+    const hits=checks.filter(x=>x[1]);
+    let risk=Math.min(95,15+hits.length*14);
+    let label=risk>=65?"🔴 LIKELY PHISHING":risk>=40?"🟡 SUSPICIOUS":"🟢 FEWER WARNING SIGNS";
+    status.classList.add("hidden");result.classList.remove("hidden");
+    result.innerHTML=`<h3>${label}</h3><h2>Educational Risk Score: ${risk}%</h2>
+      <h4>🚨 Warning Signs Detected</h4>
+      ${hits.length?`<ul>${hits.map(x=>`<li>${x[0]}</li>`).join("")}</ul>`:"<p>No listed keyword-based warning signs were detected. That does not prove an email is safe.</p>"}
+      <h4>💡 What should I do?</h4>
+      <p>Verify the sender independently. Avoid unexpected links or attachments, never provide passwords through email, and use the organization's official website or trusted contact information when unsure.</p>
+      <button class="btn secondary" onclick="document.getElementById('emailInput').value='';document.getElementById('analysisResult').classList.add('hidden')">Analyze Another Email</button>`;
+    progress.analyzer=true;updateProgress();
+  },900);
+}
+
+const chatToggle=document.getElementById("chatToggle"), chatBox=document.getElementById("chatBox");
+function toggleChat(){chatBox.classList.toggle("hidden")}
+chatToggle.onclick=toggleChat;
+function addChat(text,cls){const d=document.createElement("div");d.className=cls;d.textContent=text;document.getElementById("chatMessages").appendChild(d);d.scrollIntoView()}
+function quickChat(type){
+  const replies={
+    phishing:"Common phishing signs include urgency, unusual sender addresses, unexpected links or attachments, and requests for passwords or sensitive information.",
+    password:"Use long, unique passwords for each account. A password manager can help, and MFA adds another layer of protection.",
+    link:"Before opening an unexpected link, inspect the domain and independently visit the organization's official site instead of trusting the message."
+  }; addChat(replies[type],"bot");
+}
+function sendChat(){
+  const input=document.getElementById("chatInput"), q=input.value.trim();if(!q)return;
+  addChat(q,"user-msg");input.value="";
+  const l=q.toLowerCase();
+  let r=l.includes("password")?"Use a unique strong password and enable MFA when available.":
+    l.includes("link")?"Avoid opening unexpected links. Verify the sender and destination independently.":
+    l.includes("phish")||l.includes("email")?"Look for urgency, suspicious domains, requests for credentials, unexpected attachments, and unusual links.":
+    "I’m a simple classroom demo assistant. Try asking about phishing, passwords, or suspicious links.";
+  setTimeout(()=>addChat(r,"bot"),300);
+}
+document.getElementById("chatInput").addEventListener("keydown",e=>{if(e.key==="Enter")sendChat()});
+document.getElementById("micBtn").onclick=function(){
+  this.textContent="🎙️"; addChat("Listening… (voice feature demonstration)","bot");
+  setTimeout(()=>this.textContent="🎤",1200);
+};
+document.getElementById("menuBtn").onclick=()=>document.getElementById("navLinks").classList.toggle("open");
+document.querySelectorAll("nav a").forEach(a=>a.onclick=()=>document.getElementById("navLinks").classList.remove("open"));
+renderQuiz();

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishAware | Think Before You Click</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#home"><span>🛡️</span> PhishAware</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <nav id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#technology">Technology</a>
+      <a href="#cybersecurity">Cybersecurity</a>
+      <a href="#threat-model">Threat Model</a>
+      <a class="nav-cta" href="#analyzer">Analyze Email</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy">
+        <span class="eyebrow">CYBERSECURITY AWARENESS PLATFORM</span>
+        <h1>Think Before <span>You Click.</span></h1>
+        <p>Learn how to recognize phishing attacks, suspicious emails, dangerous links, and common online threats before they fool you.</p>
+        <div class="actions">
+          <a class="btn primary" href="#analyzer">🔍 Analyze an Email</a>
+          <a class="btn secondary" href="#quiz">🧠 Test Your Skills</a>
+        </div>
+        <div class="stats">
+          <div><strong>6+</strong><small>Threat Types</small></div>
+          <div><strong>5</strong><small>Quiz Questions</small></div>
+          <div><strong>24/7</strong><small>Learning</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="shield">🛡️</div>
+        <div class="float-card mail">✉️ Suspicious Email</div>
+        <div class="float-card lock">🔐 Stay Protected</div>
+        <div class="float-card alert">⚠️ Think First</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="eyebrow">LEARN • PRACTICE • PROTECT</span>
+        <h2>What is PhishAware?</h2>
+        <p>PhishAware is an interactive cybersecurity awareness project designed to help everyday users recognize phishing and make safer decisions online.</p>
+      </div>
+      <div class="cards three">
+        <article class="card"><div class="icon">📚</div><h3>Learn</h3><p>Understand phishing, credential attacks, suspicious links, passwords, and social engineering.</p></article>
+        <article class="card"><div class="icon">🎯</div><h3>Practice</h3><p>Use realistic examples and quizzes to practice spotting common warning signs.</p></article>
+        <article class="card"><div class="icon">🛡️</div><h3>Protect</h3><p>Learn practical habits that can help protect your accounts, devices, and personal information.</p></article>
+      </div>
+    </section>
+
+    <section class="section challenge">
+      <div class="section-head">
+        <span class="eyebrow">INTERACTIVE CHALLENGE</span>
+        <h2>Can You Spot the Phish?</h2>
+        <p>Read the simulated email carefully, then decide whether it looks safe or suspicious.</p>
+      </div>
+      <div class="email-card">
+        <div class="email-top"><span>📧 New Message</span><span class="urgent">URGENT</span></div>
+        <p><b>From:</b> Student Account Support &lt;support@rutgers-security-login.net&gt;</p>
+        <p><b>Subject:</b> ⚠️ Your Student Account Will Be Suspended</p>
+        <hr>
+        <p>We detected unusual activity on your student account. Verify your account immediately to prevent suspension.</p>
+        <button class="fake-link">VERIFY ACCOUNT NOW</button>
+      </div>
+      <h3 class="center">Is this email safe or phishing?</h3>
+      <div class="challenge-buttons">
+        <button class="btn danger" onclick="judgeEmail(true)">🚨 PHISHING</button>
+        <button class="btn safe" onclick="judgeEmail(false)">✓ SAFE</button>
+      </div>
+      <div id="challengeResult" class="result hidden"></div>
+    </section>
+
+    <section id="about" class="section alt">
+      <div class="section-head">
+        <span class="eyebrow">ABOUT THE CREATOR</span>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="profile-card">
+          <div class="avatar">AD</div>
+          <h3>Anjolaoluwa Donna Dosu</h3>
+          <p>Senior • Information Technology & Cybersecurity</p>
+          <div class="tag-row"><span>Technology</span><span>Cybersecurity</span><span>Creative</span></div>
+        </div>
+        <div class="about-copy">
+          <h3>Hello! 👋</h3>
+          <p>I am a senior studying Information Technology and Cybersecurity. I created PhishAware to explore how technology can help people recognize cybersecurity threats and make safer decisions online.</p>
+          <div class="mini-grid">
+            <div><b>🎨 Hobbies</b><p>Fitness, photography, fashion, technology, and content creation.</p></div>
+            <div><b>💻 Skills</b><p>HTML, CSS, JavaScript, Python, Java, Linux, databases, and cybersecurity fundamentals.</p></div>
+            <div><b>🎯 Career Interests</b><p>Cybersecurity Analysis, IT, Data Analysis, and Project Management.</p></div>
+            <div><b>🎓 Academic Goals</b><p>Strengthen my technical skills, complete my degree, and gain hands-on experience.</p></div>
+          </div>
+          <div class="fact">✨ <b>Interesting fact:</b> I enjoy taking pictures and creating content in my free time.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="technology" class="section">
+      <div class="section-head">
+        <span class="eyebrow">BEHIND THE PLATFORM</span>
+        <h2>Technology Behind PhishAware</h2>
+        <p>The project combines front-end technologies with cybersecurity concepts to create an interactive learning experience.</p>
+      </div>
+      <div class="cards three tech-cards">
+        <article class="card"><div class="icon">🌐</div><h3>HTML</h3><p>Provides the structure and content of the website.</p></article>
+        <article class="card"><div class="icon">🎨</div><h3>CSS</h3><p>Creates the responsive layout, colors, cards, and visual effects.</p></article>
+        <article class="card"><div class="icon">⚡</div><h3>JavaScript</h3><p>Powers quizzes, simulations, the analyzer demo, and interactive tools.</p></article>
+        <article class="card"><div class="icon">🤖</div><h3>AI Analysis</h3><p>Can help identify patterns commonly associated with suspicious emails.</p></article>
+        <article class="card"><div class="icon">🗄️</div><h3>Database</h3><p>Could securely store permitted application data when a backend is added.</p></article>
+        <article class="card"><div class="icon">🔒</div><h3>Secure Web Technology</h3><p>HTTPS, validation, access control, and secure coding help protect users.</p></article>
+      </div>
+      <div class="flow">
+        <span>User</span><b>→</b><span>Browser</span><b>→</b><span>PhishAware</span><b>→</b><span>Analysis</span><b>→</b><span>Result</span>
+      </div>
+    </section>
+
+    <section id="cybersecurity" class="section alt">
+      <div class="section-head">
+        <span class="eyebrow">KNOW THE THREATS</span>
+        <h2>Cybersecurity Awareness</h2>
+      </div>
+      <div class="cards four">
+        <article class="card"><div class="icon">🎣</div><h3>Phishing</h3><p>Messages designed to trick users into revealing information or clicking malicious links.</p></article>
+        <article class="card"><div class="icon">🔑</div><h3>Credential Attacks</h3><p>Attempts to steal, guess, or reuse usernames and passwords.</p></article>
+        <article class="card"><div class="icon">🔗</div><h3>Suspicious Links</h3><p>Links can disguise unfamiliar domains or imitate trusted websites.</p></article>
+        <article class="card"><div class="icon">🔐</div><h3>Password Security</h3><p>Use strong, unique passwords and avoid password reuse.</p></article>
+        <article class="card"><div class="icon">📱</div><h3>MFA</h3><p>Multi-factor authentication adds another verification step beyond a password.</p></article>
+        <article class="card"><div class="icon">🧠</div><h3>Social Engineering</h3><p>Attackers manipulate people using trust, fear, urgency, or curiosity.</p></article>
+        <article class="card"><div class="icon">👁️</div><h3>Data Privacy</h3><p>Limit unnecessary sharing of personal and sensitive information.</p></article>
+        <article class="card"><div class="icon">🦠</div><h3>Malware</h3><p>Malicious software can damage systems, steal data, or provide unauthorized access.</p></article>
+      </div>
+
+      <div id="quiz" class="tool-panel">
+        <span class="eyebrow">QUICK QUIZ</span>
+        <h2>Test Your Cybersecurity Skills</h2>
+        <div id="quizBox"></div>
+      </div>
+
+      <div class="tool-panel">
+        <span class="eyebrow">RISK CHECKER</span>
+        <h2>What's the Risk?</h2>
+        <div class="risk-grid">
+          <label>Does the message create urgency?<select id="r1"><option value="0">No</option><option value="1">Yes</option></select></label>
+          <label>Does it request personal information?<select id="r2"><option value="0">No</option><option value="1">Yes</option></select></label>
+          <label>Do you recognize the sender?<select id="r3"><option value="1">No</option><option value="0">Yes</option></select></label>
+          <label>Does the URL look unusual?<select id="r4"><option value="0">No</option><option value="1">Yes</option></select></label>
+        </div>
+        <button class="btn primary" onclick="calculateRisk()">Calculate Risk</button>
+        <div id="riskResult" class="result hidden"></div>
+      </div>
+    </section>
+
+    <section id="threat-model" class="section">
+      <div class="section-head">
+        <span class="eyebrow">STRIDE FRAMEWORK</span>
+        <h2>Threat Model</h2>
+        <p>This threat model identifies potential threats to PhishAware and shows where security controls can reduce risk.</p>
+      </div>
+      <div class="architecture">
+        <div class="node"><b>👤 User</b><small>Credential & authentication attacks</small></div><span>↓</span>
+        <div class="node"><b>🌐 Web Browser</b><small>Cross-Site Scripting (XSS)</small></div><span>↓</span>
+        <div class="node"><b>🖥️ Web Server</b><small>Denial-of-Service</small></div><span>↓</span>
+        <div class="node"><b>⚙️ Application</b><small>Authorization & unauthorized access</small></div><span>↓</span>
+        <div class="node"><b>🗄️ Database</b><small>SQL injection & data leakage</small></div>
+      </div>
+
+      <h3 class="subhead">Potential Security Threats</h3>
+      <div class="cards four">
+        <article class="card threat"><span>HIGH</span><h3>Authentication Attacks</h3><p>Attackers may attempt to access accounts using compromised credentials.</p><small><b>Mitigation:</b> MFA, strong password policies, rate limiting.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>Authorization Attacks</h3><p>Users may attempt to access resources outside their permitted role.</p><small><b>Mitigation:</b> Server-side authorization checks and least privilege.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>SQL Injection</h3><p>Malicious input may attempt to manipulate database queries.</p><small><b>Mitigation:</b> Parameterized queries and input validation.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>Cross-Site Scripting</h3><p>Untrusted content may attempt to execute scripts in a browser.</p><small><b>Mitigation:</b> Output encoding, sanitization, and CSP.</small></article>
+        <article class="card threat"><span>MEDIUM</span><h3>Denial-of-Service</h3><p>Excessive requests may reduce application availability.</p><small><b>Mitigation:</b> Rate limiting and traffic monitoring.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>Credential Attacks</h3><p>Stolen or reused credentials can be used to access accounts.</p><small><b>Mitigation:</b> MFA and credential protections.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>Data Leakage</h3><p>Sensitive information could be exposed through insecure handling.</p><small><b>Mitigation:</b> Encryption, access control, and minimal data collection.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>Unauthorized Access</h3><p>An attacker may attempt to reach protected resources.</p><small><b>Mitigation:</b> Authentication, authorization, logging.</small></article>
+      </div>
+
+      <h3 class="subhead">STRIDE Analysis</h3>
+      <div class="stride">
+        <div><b>S — Spoofing</b><p>Pretending to be another user. Protect with strong authentication and MFA.</p></div>
+        <div><b>T — Tampering</b><p>Unauthorized data changes. Protect with validation and integrity controls.</p></div>
+        <div><b>R — Repudiation</b><p>Denying an action occurred. Protect with appropriate audit logging.</p></div>
+        <div><b>I — Information Disclosure</b><p>Exposure of confidential data. Protect with encryption and access controls.</p></div>
+        <div><b>D — Denial of Service</b><p>Making services unavailable. Protect with rate limiting and monitoring.</p></div>
+        <div><b>E — Elevation of Privilege</b><p>Gaining excessive permissions. Protect with least privilege and authorization checks.</p></div>
+      </div>
+    </section>
+
+    <section id="analyzer" class="section alt">
+      <div class="section-head">
+        <span class="eyebrow">PHISHAWARE TOOL</span>
+        <h2>AI-Inspired Phishing Email Analyzer</h2>
+        <p>Paste a suspicious email below. This classroom demonstration checks for common warning signs using local rules.</p>
+      </div>
+      <div class="analyzer">
+        <textarea id="emailInput" placeholder="Paste the suspicious email here..."></textarea>
+        <button class="btn primary big" onclick="analyzeEmail()">🛡️ Analyze Email</button>
+        <div id="scanStatus" class="scan hidden"></div>
+        <div id="analysisResult" class="analysis-result hidden"></div>
+        <p class="disclaimer">⚠️ Educational demonstration only. PhishAware may make mistakes and does not perform a real security scan. Never rely on this tool as the only way to determine whether an email is safe.</p>
+      </div>
+    </section>
+
+    <section class="section achievements">
+      <div class="section-head"><span class="eyebrow">YOUR PROGRESS</span><h2>Cyber Achievements</h2></div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <p id="progressText" class="center">Training progress: 0%</p>
+      <div class="badges">
+        <div id="badge-phish" class="badge">🎣<b>Phishing Spotter</b></div>
+        <div id="badge-quiz" class="badge">🛡️<b>Cyber Defender</b></div>
+        <div id="badge-risk" class="badge">🔎<b>Link Detective</b></div>
+        <div id="badge-analyzer" class="badge">🔐<b>Email Investigator</b></div>
+      </div>
+    </section>
+  </main>
+
+  <button id="chatToggle" class="chat-toggle">💬</button>
+  <div id="chatBox" class="chat-box hidden">
+    <div class="chat-head"><div><b>🛡️ PhishAware Assistant</b><small>Cyber safety helper</small></div><button onclick="toggleChat()">×</button></div>
+    <div id="chatMessages" class="chat-messages"><div class="bot">Hi! 👋 How can I help you stay safer online?</div></div>
+    <div class="quick">
+      <button onclick="quickChat('phishing')">Phishing Signs</button>
+      <button onclick="quickChat('password')">Password Safety</button>
+      <button onclick="quickChat('link')">Suspicious Links</button>
+    </div>
+    <div class="chat-input">
+      <button id="micBtn" title="Voice demo">🎤</button>
+      <input id="chatInput" placeholder="Ask a cybersecurity question...">
+      <button onclick="sendChat()">➤</button>
+    </div>
+  </div>
+
+  <footer>
+    <div><b>🛡️ PhishAware</b><p>Think before you click.</p></div>
+    <p>Created by Anjolaoluwa Donna Dosu • Cybersecurity Awareness Project</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
