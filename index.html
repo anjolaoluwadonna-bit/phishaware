@@ -16,6 +16,9 @@
       <a href="#technology">Technology</a>
       <a href="#cybersecurity">Cybersecurity</a>
       <a href="#threat-model">Threat Model</a>
+      <a href="#portfolio">Coursework</a>
+      <a href="#research">Research</a>
+      <a href="#results">Results</a>
       <a class="nav-cta" href="#analyzer">Analyze Email</a>
     </nav>
   </header>
@@ -222,6 +225,36 @@
         <div id="badge-risk" class="badge">🔎<b>Link Detective</b></div>
         <div id="badge-analyzer" class="badge">🔐<b>Email Investigator</b></div>
       </div>
+    </section>
+
+    <!-- Research and coursework are part of the website, not a slide deck. -->
+    <section id="portfolio" class="section alt">
+      <div class="section-head"><span class="eyebrow">LEARNING JOURNEY</span><h2>Coursework &amp; Project Portfolio</h2><p>A collection of technical assignments and experiments completed during the semester. Links and submission evidence can be added as they are confirmed.</p></div>
+      <div class="cards three">
+        <article class="card"><span class="research-kicker">WEB DEVELOPMENT</span><h3>PhishAware Website</h3><p>Designed and implemented an interactive cybersecurity awareness site using HTML, CSS, and JavaScript.</p><span class="status done">Built · Live demo on this page</span><p><a class="research-link" href="#home">Explore website →</a></p></article>
+        <article class="card"><span class="research-kicker">AI &amp; COMPUTER VISION</span><h3>Image Classification Lab</h3><p>Explored browser-based image classification using TensorFlow.js and MobileNet.</p><span class="status done">Previous coursework</span><p class="small-note">Add assignment screenshot or repository link before presenting.</p></article>
+        <article class="card"><span class="research-kicker">NODE.JS</span><h3>ABC / Node.js Application</h3><p>Practiced building and running a JavaScript/Node.js application locally.</p><span class="status done">Previous coursework</span><p class="small-note">Add assignment screenshot or repository link before presenting.</p></article>
+        <article class="card"><span class="research-kicker">INTERFACE DESIGN</span><h3>Figma Prototype</h3><p>Planned layouts and visual design for the PhishAware experience before coding the site.</p><span class="status done">Previous coursework</span><p class="small-note">Add a Figma share link or screenshots before presenting.</p></article>
+        <article class="card"><span class="research-kicker">CYBERSECURITY</span><h3>STRIDE Threat Modeling</h3><p>Identified threats, mapped security risks, and proposed mitigations for the platform.</p><span class="status done">Built into this website</span><p><a class="research-link" href="#threat-model">View threat model →</a></p></article>
+        <article class="card"><span class="research-kicker">COURSE ARCHIVE</span><h3>Additional Assignments</h3><p>Space for any other homework completed before the midterm, including screenshots, dates, reflections, and links.</p><span class="status pending">To complete with course records</span></article>
+      </div>
+      <p class="portfolio-note"><strong>Portfolio checklist:</strong> This is a starter collection, not a verified complete list of every assignment. Add all remaining course homework and supporting evidence before your presentation.</p>
+    </section>
+
+    <section id="research" class="section">
+      <div class="section-head"><span class="eyebrow">KAGGLE RESEARCH PROJECT</span><h2>Can Machine Learning Detect Phishing Emails?</h2><p>PhishAware: Comparative Evaluation of Machine Learning and Natural Language Processing for Email Threat Detection</p></div>
+      <div class="research-highlight"><div><span class="status pending">Proposed study · Dataset selection to confirm</span><h3>Research problem</h3><p>Phishing emails impersonate trusted senders and attempt to steal credentials or sensitive information. This study aims to determine how effectively different classifiers can distinguish phishing messages from legitimate emails.</p><h3>Why this project?</h3><p>It extends PhishAware's current educational, rule-based email checker toward evidence-based phishing detection and connects security awareness with measurable machine-learning research.</p></div><div class="research-side"><span class="eyebrow">DATA SOURCE</span><h3>Kaggle email datasets</h3><p>Candidate source: labeled phishing / legitimate email text. The final dataset, license, provenance, label meanings, and class balance must be verified before training.</p><a class="btn secondary" href="https://www.kaggle.com/datasets?search=phishing%20email" target="_blank" rel="noopener noreferrer">Explore Kaggle datasets ↗</a><p class="small-note">Spam and phishing are not interchangeable labels. Dataset suitability will be checked.</p></div></div>
+      <h3 class="subhead">Research Plan &amp; Objectives</h3>
+      <div class="cards four"><article class="card"><span class="step-num">01</span><h3>Collect &amp; Audit</h3><p>Select a Kaggle dataset, review its provenance and labels, and check missing values, duplicates, and class balance.</p></article><article class="card"><span class="step-num">02</span><h3>Prepare the Data</h3><p>Clean text, split data into training/validation/test sets, and prevent duplicate or source-based leakage.</p></article><article class="card"><span class="step-num">03</span><h3>Train &amp; Compare</h3><p>Train three proposed classifiers using the same evaluation split and compare performance fairly.</p></article><article class="card"><span class="step-num">04</span><h3>Explain &amp; Apply</h3><p>Study false negatives, discuss limitations, and explore how findings might improve PhishAware.</p></article></div>
+      <h3 class="subhead">Three Proposed AI Models</h3>
+      <div class="cards three"><article class="card"><span class="research-kicker">MODEL 01 · BASELINE</span><h3>Logistic Regression</h3><p>A fast, interpretable text classifier using TF-IDF features. Establishes a strong traditional ML baseline.</p><span class="status pending">Planned · Not trained yet</span></article><article class="card"><span class="research-kicker">MODEL 02 · ENSEMBLE</span><h3>Random Forest</h3><p>Combines multiple decision trees to learn patterns in engineered email features or text vectors.</p><span class="status pending">Planned · Not trained yet</span></article><article class="card"><span class="research-kicker">MODEL 03 · NLP</span><h3>DistilBERT</h3><p>A pretrained transformer to fine-tune for email text classification, subject to compute and dataset constraints.</p><span class="status pending">Planned · Not trained yet</span></article></div>
+    </section>
+
+    <section id="results" class="section alt">
+      <div class="section-head"><span class="eyebrow">EVIDENCE &amp; EVALUATION</span><h2>Experimental Results</h2><p>Results will be published here after dataset validation, training, and testing. No model performance is claimed yet.</p></div>
+      <div class="results-panel"><div class="results-head"><h3>Model comparison</h3><span class="status pending">Experiments pending</span></div><div class="table-wrap"><table class="research-table"><thead><tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1-score</th></tr></thead><tbody><tr><td>Logistic Regression</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Random Forest</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>DistilBERT</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table></div><p class="small-note">Dashes mean not yet measured, not zero. We will also report a confusion matrix, dataset size, class distribution, and error analysis. Recall for phishing is especially important because missed attacks are dangerous.</p></div>
+      <h3 class="subhead">Next Steps</h3><div class="cards three"><article class="card"><h3>1. Validate Dataset</h3><p>Choose the exact Kaggle dataset and verify phishing labels, ethical use, and data quality.</p></article><article class="card"><h3>2. Run Experiments</h3><p>Build reproducible Python notebooks, train models, record metrics, and analyze mistakes.</p></article><article class="card"><h3>3. Final Research Paper</h3><p>Document the security problem, methodology, contributions, experimental results, limitations, and conclusions.</p></article></div>
+      <div class="research-highlight next-banner"><div><span class="eyebrow">EXPECTED SECURITY CONTRIBUTION</span><h3>From awareness to evaluated detection</h3><p>The intended contribution is a transparent comparison of phishing email classifiers and practical lessons about false negatives, data quality, and the feasibility of adding ML-assisted guidance to PhishAware. Contributions will be stated based on completed experiments.</p></div><a class="btn primary" href="#analyzer">Try current rule-based analyzer →</a></div>
     </section>
   </main>
 
