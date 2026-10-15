@@ -116,3 +116,18 @@ document.getElementById("micBtn").onclick=function(){
 document.getElementById("menuBtn").onclick=()=>document.getElementById("navLinks").classList.toggle("open");
 document.querySelectorAll("nav a").forEach(a=>a.onclick=()=>document.getElementById("navLinks").classList.remove("open"));
 renderQuiz();
+
+// Interactive teaching scenario: all counts are fictional, never model measurements.
+(function(){
+ const caught=document.getElementById('caughtSlider'),falseAlarms=document.getElementById('falseSlider');
+ if(!caught||!falseAlarms)return;
+ function update(){
+  const tp=Number(caught.value),fn=40-tp,fp=Number(falseAlarms.value),tn=60-fp;
+  const accuracy=(tp+tn)/100,precision=(tp+fp)?tp/(tp+fp):0,recall=tp/40,f1=(precision+recall)?2*precision*recall/(precision+recall):0;
+  [['tpVal',tp],['fnVal',fn],['fpVal',fp],['tnVal',tn],['caughtOutput',tp],['falseOutput',fp]].forEach(([id,v])=>document.getElementById(id).textContent=v);
+  [['acc',accuracy],['prec',precision],['rec',recall],['f1',f1]].forEach(([id,v])=>{document.getElementById(id+'Text').textContent=(v*100).toFixed(1)+'%';document.getElementById(id+'Bar').style.width=(v*100).toFixed(1)+'%';});
+  document.getElementById('metricInsight').textContent=fn+' of 40 phishing emails were missed (false negatives); '+fp+' of 60 legitimate emails triggered false alarms. Lower false negatives increase recall; lower false positives improve precision.';
+ }
+ caught.addEventListener('input',update);falseAlarms.addEventListener('input',update);
+ document.getElementById('resetScenario').addEventListener('click',()=>{caught.value=32;falseAlarms.value=6;update()});update();
+})();

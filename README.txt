@@ -1,6 +1,7 @@
-PHISHAWARE — CYBERSECURITY WEBSITE & RESEARCH PORTFOLIO
+PhishAware — Research Dashboard Edition
 
-Upload all contents of this ZIP to the ROOT of your GitHub Pages repository, including the assets folder.
+Upload ALL extracted files (index.html, style.css, app.js, SVG files) directly to the root of your existing GitHub Pages repository. Do not upload the ZIP itself.
 
-The portfolio includes coursework summaries and original concept illustrations, not fabricated assignment screenshots.
-The working email analyzer is rule-based. AI model performance results have not been measured.
+New features: research workflow, three-model tradeoff comparison, interactive confusion matrix with bar graphs, evaluation plan, and roadmap.
+
+IMPORTANT: The dashboard values are fictional teaching examples, not Kaggle data or trained-model results. The site continues to use a rule-based educational email analyzer.
