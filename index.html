@@ -17,7 +17,7 @@
       <a href="#cybersecurity">Cybersecurity</a>
       <a href="#threat-model">Threat Model</a>
       <a href="#secure-architecture">Architecture</a>
-      <a href="#access-control">Access Control</a>
+      <a href="#access-control">Access Control</a><a href="#a4-chat-panel">Chatbot</a><a href="#a4-agent-panel">Digital Guide</a>
       <a href="#portfolio">Coursework</a>
       <a href="#research">Research</a>
       <a href="#results">Results</a>
@@ -248,6 +248,7 @@
 
 
     <section id="access-control" class="section alt">
+      <div class="a4-feature-launch"><div><strong>NEW · ASSIGNMENT 4</strong><h3>Chat with the security assistant or meet your digital guide</h3><p>Try the working browser demonstrations below. The chatbot uses prepared cybersecurity answers, and the digital guide can speak answers aloud on supported browsers.</p></div><div class="a4-actions"><a class="btn primary" href="#a4-chat-panel">💬 Open Chatbot</a><a class="btn secondary" href="#a4-agent-panel">🧑‍💻 Meet Digital Guide</a></div></div>
       <div class="section-head"><span class="eyebrow">ASSIGNMENT 04 · COMPUTER SECURITY</span><h2>Authentication &amp; Access Control</h2><p>Explore how identity verification, role-based permissions, an assistant, and a digital-person interface fit into a secure phishing-awareness platform.</p></div>
       <div class="cards three">
         <article class="card"><span class="research-kicker">01 · AUTHENTICATION</span><h3>Who are you?</h3><p>Authentication verifies a person's identity, for example with a password and multifactor authentication. A real system must check credentials on a trusted server.</p></article>
@@ -265,13 +266,13 @@
           <div class="a4-demo-box"><h4>Administrator controls</h4><button class="btn secondary" id="demoUsers" type="button" disabled>Manage users</button><button class="btn secondary" id="demoLogs" type="button" disabled>View security logs</button><button class="btn secondary" id="demoContent" type="button" disabled>Manage website content</button><p id="adminFeedback" class="small-note">Admin actions are simulated, with no real user records.</p></div>
         </div>
       </div>
-      <div class="a4-panel" style="margin-top:26px">
+      <div class="a4-panel" id="a4-chat-panel" style="margin-top:26px">
         <div class="a4-top"><div><span class="research-kicker">PART 2 · CHATBOT</span><h3>PhishAware Security Assistant</h3></div><span class="status pending">Educational response engine</span></div>
         <p>Ask questions about phishing, passwords, MFA, suspicious links, and privacy. The working assistant uses local, topic-based responses. It is <strong>not yet connected to a generative AI model</strong>; a protected AI API is a planned upgrade.</p>
         <div id="a4ChatHistory" class="a4-chat-history" aria-live="polite"><div class="a4-bubble bot">Hello! Ask me how to recognize phishing or protect an account.</div></div>
         <form id="a4ChatForm" class="a4-chat-form"><label class="sr-only" for="a4ChatQuestion">Your question</label><input id="a4ChatQuestion" placeholder="e.g. How do I spot a fake email?" maxlength="500" required><button class="btn primary" type="submit">Send question</button></form>
       </div>
-      <div class="a4-panel" style="margin-top:26px">
+      <div class="a4-panel" id="a4-agent-panel" style="margin-top:26px">
         <div class="a4-top"><div><span class="research-kicker">PART 3 · DIGITAL PERSON</span><h3>Meet your interactive security guide</h3></div><span class="status pending">Photo-to-avatar preview · browser demo</span></div>
         <p>Demonstration workflow: <strong>Upload Photo → Create Avatar Preview → Talk → Ask Questions → Hear Answers.</strong> The uploaded photo is displayed locally as a circular avatar; this is <strong>not AI image generation</strong>. Generating a new AI likeness requires a separate image-generation service.</p>
         <div class="a4-avatar-layout"><div class="a4-avatar-column"><div class="a4-avatar" id="a4Avatar" aria-label="Avatar preview"><span id="a4AvatarFallback">🛡️</span><img id="a4AvatarImage" alt="Your uploaded avatar preview" hidden></div><label class="a4-upload" for="a4Photo">Upload a photo (JPG, PNG or WebP)</label><input type="file" id="a4Photo" accept="image/jpeg,image/png,image/webp"><button class="btn secondary" type="button" id="a4RemovePhoto">Remove photo</button><p class="small-note">Your photo stays in this browser tab; it is not uploaded to a server.</p></div>
@@ -396,7 +397,7 @@
     </section>
   </main>
 
-  <button id="chatToggle" class="chat-toggle">💬</button>
+  <button id="chatToggle" class="chat-toggle" aria-label="Open security chatbot">💬 <span>Chat with us</span></button>
   <div id="chatBox" class="chat-box hidden">
     <div class="chat-head"><div><b>🛡️ PhishAware Assistant</b><small>Cyber safety helper</small></div><button onclick="toggleChat()">×</button></div>
     <div id="chatMessages" class="chat-messages"><div class="bot">Hi! 👋 How can I help you stay safer online?</div></div>
