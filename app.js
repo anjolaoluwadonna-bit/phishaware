@@ -131,3 +131,46 @@ renderQuiz();
  caught.addEventListener('input',update);falseAlarms.addEventListener('input',update);
  document.getElementById('resetScenario').addEventListener('click',()=>{caught.value=32;falseAlarms.value=6;update()});update();
 })();
+
+
+// Assignment 4: local educational demos only; NOT secure server authentication.
+(function(){
+  const $=id=>document.getElementById(id);
+  let role='Guest';
+  const perms=[['View personal information',['Regular User','Administrator']],['Edit personal profile',['Regular User','Administrator']],['Manage users',['Administrator']],['View security logs',['Administrator']],['Manage website content',['Administrator']]];
+  function setRole(next){
+    role=next;$('roleStatus').textContent='Active demonstration role: '+role;
+    $('rolePermissions').replaceChildren();
+    perms.forEach(([name,allowed])=>{let ok=allowed.includes(role);let el=document.createElement('div');el.className='a4-permission '+(ok?'allowed':'denied');el.textContent=(ok?'✓ Allowed: ':'✕ Not allowed: ')+name;$('rolePermissions').append(el)});
+    const isUser=role!=='Guest',isAdmin=role==='Administrator';
+    $('demoName').disabled=!isUser;$('saveDemoName').disabled=!isUser;
+    ['demoUsers','demoLogs','demoContent'].forEach(id=>$(id).disabled=!isAdmin);
+    $('profileFeedback').textContent=isUser?'Profile edits are simulated in this browser tab.':'Sign in to a demonstration role to edit.';
+    $('adminFeedback').textContent=isAdmin?'Administrator controls enabled in this demo.':'Only the Administrator demonstration role can use these controls.';
+  }
+  $('roleUser').addEventListener('click',()=>setRole('Regular User'));
+  $('roleAdmin').addEventListener('click',()=>setRole('Administrator'));
+  $('roleGuest').addEventListener('click',()=>setRole('Guest'));
+  $('saveDemoName').addEventListener('click',()=>{$('profileFeedback').textContent='Saved locally for this demo: '+$('demoName').value.slice(0,60)});
+  [['demoUsers','Example users: learner, educator (fictional records).'],['demoLogs','Example security log: demonstration role changed (no real logs).'],['demoContent','Content management would require a protected server API. This is a preview only.']].forEach(([id,msg])=>$(id).addEventListener('click',()=>{$('adminFeedback').textContent=msg}));
+  setRole('Guest');
+  function reply(q){let t=q.toLowerCase();
+    if(/phish|fake email|scam|suspicious email/.test(t))return 'Check the sender address carefully, inspect links without opening them, watch for urgent requests, and verify claims through the organization’s official website.';
+    if(/password|passphrase/.test(t))return 'Use long, unique passwords for each account. A password manager and multifactor authentication help protect your accounts.';
+    if(/mfa|two.factor|authentication|login/.test(t))return 'Authentication proves identity. Multifactor authentication adds a second check, such as an authenticator app or security key.';
+    if(/authorization|access|permission|admin/.test(t))return 'Authorization determines what a signed-in person is allowed to do. An administrator may manage users, while a regular user can only manage their own profile.';
+    if(/link|url|website/.test(t))return 'Check the full domain name and avoid opening unexpected links. Instead, type the official address yourself.';
+    if(/privacy|data|photo/.test(t))return 'Share as little sensitive information as possible. This photo preview stays in your browser; do not upload private photos to unfamiliar websites.';
+    if(/hello|hi|hey/.test(t))return 'Hello! I can help with phishing, passwords, MFA, suspicious links, and access control.';
+    return 'I can answer common cybersecurity questions about phishing, passwords, MFA, suspicious links, and access control. This demonstration uses predefined guidance, not generative AI.';
+  }
+  $('a4ChatForm').addEventListener('submit',e=>{e.preventDefault();let q=$('a4ChatQuestion').value.trim();if(!q)return;let history=$('a4ChatHistory');for(let [txt,cls] of [[q,'me'],[reply(q),'bot']]){let d=document.createElement('div');d.className='a4-bubble '+cls;d.textContent=txt;history.append(d)}history.scrollTop=history.scrollHeight;$('a4ChatQuestion').value=''});
+  let photoUrl=null;
+  $('a4Photo').addEventListener('change',e=>{let file=e.target.files[0];if(!file)return;if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>5*1024*1024){$('a4VoiceStatus').textContent='Choose a JPG, PNG, or WebP under 5 MB.';e.target.value='';return;}if(photoUrl)URL.revokeObjectURL(photoUrl);photoUrl=URL.createObjectURL(file);$('a4AvatarImage').src=photoUrl;$('a4AvatarImage').hidden=false;$('a4AvatarFallback').hidden=true;$('a4VoiceStatus').textContent='Photo preview created locally. You can now ask a question.'});
+  $('a4RemovePhoto').addEventListener('click',()=>{if(photoUrl)URL.revokeObjectURL(photoUrl);photoUrl=null;$('a4AvatarImage').removeAttribute('src');$('a4AvatarImage').hidden=true;$('a4AvatarFallback').hidden=false;$('a4Photo').value='';});
+  $('a4AvatarForm').addEventListener('submit',e=>{e.preventDefault();let q=$('a4AvatarQuestion').value.trim();if(!q)return;$('a4AvatarAnswer').textContent=reply(q);$('a4AvatarQuestion').value='';speak();});
+  function speak(){if(!('speechSynthesis' in window)){$('a4VoiceStatus').textContent='Text-to-speech is not supported in this browser.';return;}window.speechSynthesis.cancel();let u=new SpeechSynthesisUtterance($('a4AvatarAnswer').textContent);u.rate=.95;window.speechSynthesis.speak(u);$('a4VoiceStatus').textContent='Speaking the guide’s answer…'}
+  $('a4Speak').addEventListener('click',speak);
+  $('a4Stop').addEventListener('click',()=>{if('speechSynthesis'in window)window.speechSynthesis.cancel();$('a4VoiceStatus').textContent='Speech stopped.'});
+  $('a4Listen').addEventListener('click',()=>{let Rec=window.SpeechRecognition||window.webkitSpeechRecognition;if(!Rec){$('a4VoiceStatus').textContent='Speech recognition is not available in this browser. Please type your question.';return;}let r=new Rec();r.lang='en-US';r.interimResults=false;r.onresult=e=>{$('a4AvatarQuestion').value=e.results[0][0].transcript;$('a4AvatarForm').requestSubmit()};r.onerror=e=>{$('a4VoiceStatus').textContent='Microphone issue: '+e.error+'. You can still type your question.'};r.start();$('a4VoiceStatus').textContent='Listening for a question…'});
+})();

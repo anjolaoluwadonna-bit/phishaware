@@ -17,6 +17,7 @@
       <a href="#cybersecurity">Cybersecurity</a>
       <a href="#threat-model">Threat Model</a>
       <a href="#secure-architecture">Architecture</a>
+      <a href="#access-control">Access Control</a>
       <a href="#portfolio">Coursework</a>
       <a href="#research">Research</a>
       <a href="#results">Results</a>
@@ -243,6 +244,40 @@
         <ol class="arch-steps"><li><strong>Submit:</strong> The user pastes a suspicious email into the frontend.</li><li><strong>Protect:</strong> HTTPS encrypts the request to the future API; rate limits and input validation reject unsafe or oversized requests.</li><li><strong>Analyze:</strong> The application layer runs the detection model and creates a risk explanation without opening links in the email.</li><li><strong>Control access:</strong> If saving is enabled, the server checks the user's identity and permission before writing an encrypted record.</li><li><strong>Respond:</strong> The frontend shows a risk score, warning signs, and safety guidance without rendering untrusted HTML.</li></ol>
         <p class="arch-note"><strong>Security principle:</strong> Do not store pasted email content by default. If saved analyses are added later, request consent and apply retention limits. This design also supports STRIDE mitigations for spoofing, tampering, information disclosure, and denial of service.</p>
       </div>
+    </section>
+
+
+    <section id="access-control" class="section alt">
+      <div class="section-head"><span class="eyebrow">ASSIGNMENT 04 · COMPUTER SECURITY</span><h2>Authentication &amp; Access Control</h2><p>Explore how identity verification, role-based permissions, an assistant, and a digital-person interface fit into a secure phishing-awareness platform.</p></div>
+      <div class="cards three">
+        <article class="card"><span class="research-kicker">01 · AUTHENTICATION</span><h3>Who are you?</h3><p>Authentication verifies a person's identity, for example with a password and multifactor authentication. A real system must check credentials on a trusted server.</p></article>
+        <article class="card"><span class="research-kicker">02 · AUTHORIZATION</span><h3>What can you do?</h3><p>Authorization checks what an authenticated person is allowed to access. A regular user should not be able to manage other users or read security logs.</p></article>
+        <article class="card"><span class="research-kicker">03 · SECURE DESIGN</span><h3>Enforce on the server</h3><p>In production, the server checks every protected request, stores password hashes securely, and manages sessions. Hiding a button alone is not security.</p></article>
+      </div>
+      <div class="a4-panel" style="margin-top:26px">
+        <div class="a4-top"><div><span class="research-kicker">INTERACTIVE ROLE-BASED ACCESS DEMO</span><h3>Explore regular-user vs. administrator permissions</h3></div><span class="status pending">Simulated roles · no real accounts</span></div>
+        <p class="small-note">Switch roles to demonstrate authorization. This is a browser-only teaching example; selecting “Administrator” does not grant real privileges.</p>
+        <div class="a4-actions"><button class="btn primary" id="roleUser" type="button">👤 Regular User</button><button class="btn secondary" id="roleAdmin" type="button">🛡️ Administrator</button><button class="btn secondary" id="roleGuest" type="button">🚪 Sign out (Guest)</button></div>
+        <p id="roleStatus" aria-live="polite" class="a4-status">Active demonstration role: Guest</p>
+        <div class="a4-permissions" id="rolePermissions"></div>
+        <div class="a4-demo-grid">
+          <div class="a4-demo-box"><h4>Personal profile</h4><label for="demoName">Display name</label><input id="demoName" maxlength="60" value="PhishAware Learner" disabled><button class="btn secondary" id="saveDemoName" type="button" disabled>Save profile (demo)</button><p class="small-note" id="profileFeedback">Choose a role to begin.</p></div>
+          <div class="a4-demo-box"><h4>Administrator controls</h4><button class="btn secondary" id="demoUsers" type="button" disabled>Manage users</button><button class="btn secondary" id="demoLogs" type="button" disabled>View security logs</button><button class="btn secondary" id="demoContent" type="button" disabled>Manage website content</button><p id="adminFeedback" class="small-note">Admin actions are simulated, with no real user records.</p></div>
+        </div>
+      </div>
+      <div class="a4-panel" style="margin-top:26px">
+        <div class="a4-top"><div><span class="research-kicker">PART 2 · CHATBOT</span><h3>PhishAware Security Assistant</h3></div><span class="status pending">Educational response engine</span></div>
+        <p>Ask questions about phishing, passwords, MFA, suspicious links, and privacy. The working assistant uses local, topic-based responses. It is <strong>not yet connected to a generative AI model</strong>; a protected AI API is a planned upgrade.</p>
+        <div id="a4ChatHistory" class="a4-chat-history" aria-live="polite"><div class="a4-bubble bot">Hello! Ask me how to recognize phishing or protect an account.</div></div>
+        <form id="a4ChatForm" class="a4-chat-form"><label class="sr-only" for="a4ChatQuestion">Your question</label><input id="a4ChatQuestion" placeholder="e.g. How do I spot a fake email?" maxlength="500" required><button class="btn primary" type="submit">Send question</button></form>
+      </div>
+      <div class="a4-panel" style="margin-top:26px">
+        <div class="a4-top"><div><span class="research-kicker">PART 3 · DIGITAL PERSON</span><h3>Meet your interactive security guide</h3></div><span class="status pending">Photo-to-avatar preview · browser demo</span></div>
+        <p>Demonstration workflow: <strong>Upload Photo → Create Avatar Preview → Talk → Ask Questions → Hear Answers.</strong> The uploaded photo is displayed locally as a circular avatar; this is <strong>not AI image generation</strong>. Generating a new AI likeness requires a separate image-generation service.</p>
+        <div class="a4-avatar-layout"><div class="a4-avatar-column"><div class="a4-avatar" id="a4Avatar" aria-label="Avatar preview"><span id="a4AvatarFallback">🛡️</span><img id="a4AvatarImage" alt="Your uploaded avatar preview" hidden></div><label class="a4-upload" for="a4Photo">Upload a photo (JPG, PNG or WebP)</label><input type="file" id="a4Photo" accept="image/jpeg,image/png,image/webp"><button class="btn secondary" type="button" id="a4RemovePhoto">Remove photo</button><p class="small-note">Your photo stays in this browser tab; it is not uploaded to a server.</p></div>
+        <div class="a4-avatar-conversation"><h4>Talk to your digital guide</h4><p id="a4AvatarAnswer" aria-live="polite">Hello! I'm your PhishAware guide. Ask me a cybersecurity question.</p><form id="a4AvatarForm" class="a4-chat-form"><label class="sr-only" for="a4AvatarQuestion">Ask your guide</label><input id="a4AvatarQuestion" placeholder="Ask about suspicious messages..." maxlength="500" required><button class="btn primary" type="submit">Ask</button></form><div class="a4-actions"><button class="btn secondary" id="a4Speak" type="button">🔊 Speak answer</button><button class="btn secondary" id="a4Listen" type="button">🎤 Ask by voice</button><button class="btn secondary" id="a4Stop" type="button">Stop speaking</button></div><p class="small-note" id="a4VoiceStatus">Voice features depend on your browser's speech support and microphone permission.</p></div></div>
+      </div>
+      <div class="a4-panel" style="margin-top:26px"><span class="research-kicker">IMPLEMENTATION STATUS &amp; NEXT STEPS</span><div class="cards three"><article class="card"><h3>Working now</h3><p>Role switching, permission differences, profile editing demonstration, topic-based conversation, photo preview, and supported browser speech.</p></article><article class="card"><h3>Production security</h3><p>Implement backend sign-in, hashed passwords, MFA, session cookies, server-enforced authorization, audit logs, and protected database storage.</p></article><article class="card"><h3>AI integration</h3><p>Connect a secure server-side language-model API for generated answers and a consent-aware avatar generation service for AI-created digital people.</p></article></div></div>
     </section>
 
     <section id="analyzer" class="section alt">
