@@ -174,3 +174,18 @@ renderQuiz();
   $('a4Stop').addEventListener('click',()=>{if('speechSynthesis'in window)window.speechSynthesis.cancel();$('a4VoiceStatus').textContent='Speech stopped.'});
   $('a4Listen').addEventListener('click',()=>{let Rec=window.SpeechRecognition||window.webkitSpeechRecognition;if(!Rec){$('a4VoiceStatus').textContent='Speech recognition is not available in this browser. Please type your question.';return;}let r=new Rec();r.lang='en-US';r.interimResults=false;r.onresult=e=>{$('a4AvatarQuestion').value=e.results[0][0].transcript;$('a4AvatarForm').requestSubmit()};r.onerror=e=>{$('a4VoiceStatus').textContent='Microphone issue: '+e.error+'. You can still type your question.'};r.start();$('a4VoiceStatus').textContent='Listening for a question…'});
 })();
+
+// Assignment 6: benign, client-side XSS demonstration. Never evaluate user input.
+(function(){
+ const input=document.getElementById('xssInput'),output=document.getElementById('xssOutput'),status=document.getElementById('xssStatus');
+ if(!input||!output||!status)return;
+ document.getElementById('xssSample').addEventListener('click',()=>{input.value='<strong>Hello from a visitor</strong>';status.textContent='Harmless HTML sample loaded. Click Validate and display safely.';});
+ document.getElementById('xssShow').addEventListener('click',()=>{
+  const value=input.value.trim();
+  if(!value){status.textContent='Please enter a message before submitting.';output.textContent='Your message will appear here as plain text.';return;}
+  if(value.length>180){status.textContent='Message is too long (180-character limit).';return;}
+  output.textContent=value; // Critical: render as text, never as HTML.
+  status.textContent='Input accepted. Special characters are displayed as plain text; no HTML was executed.';
+ });
+ document.getElementById('xssClear').addEventListener('click',()=>{input.value='';output.textContent='Your message will appear here as plain text.';status.textContent='Demo cleared.';});
+})();

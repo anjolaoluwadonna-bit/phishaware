@@ -14,3 +14,5 @@ New Access Control section includes a browser-only role and permission demo, edu
 IMPORTANT: This is NOT secure authentication/authorization. It has no backend, real user accounts, or session management. The chatbot is topic-based and does NOT produce generative AI responses. The avatar displays a local uploaded photo and is NOT an AI-generated person. To meet requirements for real secure authentication, generative AI, and AI avatar generation, deploy an authenticated backend and protected AI service endpoints. Never put secret API keys in static frontend code.
 
 IMPORTANT: To publish, upload ALL extracted files into the ROOT of your GitHub repository and commit. GitHub Pages may take several minutes. Force-refresh Safari with Command+Option+R. The chatbot and digital guide are interactive browser demos, not live generative AI.
+
+ASSIGNMENT 6: Added XSS Security navigation and interactive safe-output demo. Input is displayed with textContent, not interpreted as HTML. This is not a full security audit.
