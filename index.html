@@ -16,6 +16,7 @@
       <a href="#technology">Technology</a>
       <a href="#cybersecurity">Cybersecurity</a>
       <a href="#threat-model">Threat Model</a>
+      <a href="#secure-architecture">Architecture</a>
       <a href="#portfolio">Coursework</a>
       <a href="#research">Research</a>
       <a href="#results">Results</a>
@@ -197,6 +198,50 @@
         <div><b>I — Information Disclosure</b><p>Exposure of confidential data. Protect with encryption and access controls.</p></div>
         <div><b>D — Denial of Service</b><p>Making services unavailable. Protect with rate limiting and monitoring.</p></div>
         <div><b>E — Elevation of Privilege</b><p>Gaining excessive permissions. Protect with least privilege and authorization checks.</p></div>
+      </div>
+    </section>
+
+
+    <section id="secure-architecture" class="section alt">
+      <div class="section-head">
+        <span class="eyebrow">ASSIGNMENT 3 · SECURE WEB ARCHITECTURE</span>
+        <h2>Designing a Secure PhishAware Platform</h2>
+        <p>How PhishAware works today, and how its architecture would evolve into a secure, account-based phishing analysis service.</p>
+      </div>
+      <div class="arch-status-grid">
+        <article class="arch-status arch-live"><span class="arch-pill">CURRENT IMPLEMENTATION</span><h3>Static educational website</h3><p>GitHub Pages serves HTML, CSS, JavaScript, and images over HTTPS. The quiz, chatbot, and phishing analyzer run in the visitor's browser. There is no custom backend, database, login, or server-side session today.</p></article>
+        <article class="arch-status arch-future"><span class="arch-pill">PROPOSED ARCHITECTURE</span><h3>Secure full-stack expansion</h3><p>A dedicated web/API server would support user accounts, server-side phishing analysis, protected data storage, access controls, and monitored sessions. These are design decisions, not deployed features.</p></article>
+      </div>
+      <div class="arch-panel">
+        <h3>Architecture &amp; data flow</h3>
+        <p class="arch-muted">Proposed design: browser → HTTPS web server → authenticated application API → database. The current site uses only the browser and GitHub Pages portions.</p>
+        <div class="arch-flow" role="img" aria-label="Proposed PhishAware architecture: user browser sends HTTPS requests to web server, web server forwards requests to application layer, application layer accesses database; authentication, authorization, validation and session controls protect the application.">
+          <div class="arch-box"><span>01 · FRONTEND</span><strong>👤 User Browser</strong><small>HTML · CSS · JavaScript</small><em>Implemented</em></div>
+          <div class="arch-arrow">→<small>HTTPS</small></div>
+          <div class="arch-box"><span>02 · WEB SERVER</span><strong>🌐 Web Delivery</strong><small>GitHub Pages today; reverse proxy in future</small><em>Static hosting live</em></div>
+          <div class="arch-arrow">→<small>API request</small></div>
+          <div class="arch-box arch-planned"><span>03 · APPLICATION</span><strong>⚙️ Analysis API</strong><small>Validation · phishing model · access checks</small><em>Proposed</em></div>
+          <div class="arch-arrow">→<small>Least privilege</small></div>
+          <div class="arch-box arch-planned"><span>04 · DATABASE</span><strong>🗄️ Protected Storage</strong><small>Users · results · minimal audit logs</small><em>Proposed</em></div>
+        </div>
+        <div class="arch-security-row"><span>🔒 Encryption in transit and at rest</span><span>🪪 Authentication + secure sessions</span><span>🛂 Role-based authorization</span><span>🧹 Input validation + rate limits</span></div>
+      </div>
+      <div class="section-head arch-subhead"><span class="eyebrow">NINE REQUIRED COMPONENTS</span><h3>Security controls and responsibilities</h3><p>Each component has a clear role in the design, with current functionality separated from planned functionality.</p></div>
+      <div class="arch-components">
+        <article class="arch-component"><span>01</span><h4>Frontend</h4><p>Responsive pages, email input form, learning challenges, and result displays. Treat every input as untrusted.</p><b>Implemented</b></article>
+        <article class="arch-component"><span>02</span><h4>Web server</h4><p>GitHub Pages currently hosts static files via HTTPS. A future reverse proxy could route API requests and apply traffic limits.</p><b>Static hosting implemented</b></article>
+        <article class="arch-component"><span>03</span><h4>Application layer</h4><p>Future server-side API for phishing classification, validation, business rules, logging, and model inference.</p><b>Proposed</b></article>
+        <article class="arch-component"><span>04</span><h4>Database</h4><p>Future database for account records and optional saved analyses, with minimal retention and restricted service credentials.</p><b>Proposed</b></article>
+        <article class="arch-component"><span>05</span><h4>Authentication</h4><p>Future sign-in using strong password hashing, account protection, and optional multi-factor authentication.</p><b>Proposed</b></article>
+        <article class="arch-component"><span>06</span><h4>Authorization</h4><p>Server-side checks ensure users can access only their own analyses; administrators receive limited, audited privileges.</p><b>Proposed</b></article>
+        <article class="arch-component"><span>07</span><h4>Encryption</h4><p>HTTPS protects traffic to the published site today. Future sensitive records would also use encryption at rest and managed secrets.</p><b>HTTPS implemented · storage proposed</b></article>
+        <article class="arch-component"><span>08</span><h4>Session management</h4><p>Future sessions would use Secure, HttpOnly, SameSite cookies, short expiration times, and session invalidation on logout.</p><b>Proposed</b></article>
+        <article class="arch-component"><span>09</span><h4>Input validation</h4><p>Future API validates email length and format, limits request size, escapes displayed content, and avoids executing pasted links or HTML.</p><b>Server-side controls proposed</b></article>
+      </div>
+      <div class="arch-panel arch-example">
+        <h3>Example: checking a suspicious email</h3>
+        <ol class="arch-steps"><li><strong>Submit:</strong> The user pastes a suspicious email into the frontend.</li><li><strong>Protect:</strong> HTTPS encrypts the request to the future API; rate limits and input validation reject unsafe or oversized requests.</li><li><strong>Analyze:</strong> The application layer runs the detection model and creates a risk explanation without opening links in the email.</li><li><strong>Control access:</strong> If saving is enabled, the server checks the user's identity and permission before writing an encrypted record.</li><li><strong>Respond:</strong> The frontend shows a risk score, warning signs, and safety guidance without rendering untrusted HTML.</li></ol>
+        <p class="arch-note"><strong>Security principle:</strong> Do not store pasted email content by default. If saved analyses are added later, request consent and apply retention limits. This design also supports STRIDE mitigations for spoofing, tampering, information disclosure, and denial of service.</p>
       </div>
     </section>
 
