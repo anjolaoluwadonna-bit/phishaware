@@ -1,0 +1,19 @@
+GOOGLE FLOW MOVIE: THE TRAFFIC SURGE
+Style across all scenes: cinematic educational cybersecurity short, 16:9 landscape, realistic professional security operations center, deep navy and teal lighting, diverse young adult woman cybersecurity analyst, readable generic dashboards, no logos, no hacking instructions, no violence. Keep character appearance consistent.
+
+SCENE 1 (6–8 seconds): Wide establishing shot of a modern security operations center. A cybersecurity analyst monitors a fictional educational site called PhishAware. Calm activity, slow camera push toward network monitoring display.
+Narration: Every website depends on availability. People need access when they need it.
+
+SCENE 2 (6–8 seconds): Close-up of dashboard showing an unexpected surge in incoming network requests and an alert for abnormal traffic. Analyst notices and examines patterns, dramatic but grounded, no code or exploit details.
+Narration: Then an unusual traffic surge appears. Could this be a denial-of-service attack?
+
+SCENE 3 (6–8 seconds): Split-screen visualization: ordinary web requests on one side, many simultaneous request sources on the other. Smooth motion graphics and clear distinction between DoS and DDoS.
+Narration: A DoS attack can overwhelm a service from one source. A DDoS attack involves many sources.
+
+SCENE 4 (6–8 seconds): Analyst reviews benign and malicious labeled traffic on a clean research dashboard, charts of flow rates, packet counts, and an alert classification. Professional close-up and over-shoulder camera movement.
+Narration: By studying labeled traffic, analysts can spot patterns and investigate suspicious behavior.
+
+SCENE 5 (6–8 seconds): Security team enables defensive rate limiting, monitoring, and protective traffic filtering; website status changes to healthy. Brightening scene, optimistic final camera pullback.
+Narration: Early detection and layered defenses can help protect website availability. Stay alert. Stay PhishAware.
+
+EXPORT: Join the clips in Google Flow or CapCut, add subtitles and narration, export MP4, name assignment7_final_movie.mp4, and update the video source in index.html. Test playback on your published GitHub Pages URL.

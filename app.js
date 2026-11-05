@@ -189,3 +189,6 @@ renderQuiz();
  });
  document.getElementById('xssClear').addEventListener('click',()=>{input.value='';output.textContent='Your message will appear here as plain text.';status.textContent='Demo cleared.';});
 })();
+
+// Lab 1 report export (browser-only; no remote submission)
+document.getElementById('lab-export')?.addEventListener('click',()=>{const fields=[['Computer / OS','lab-os'],['Location','lab-location'],['Connection / ISP','lab-isp'],['IPv4 address','lab-ip'],['Subnet mask','lab-mask'],['Default gateway','lab-gateway'],['MAC address','lab-mac'],['DNS server','lab-dns'],['Procedure and notes','lab-notes'],['Results and conclusion','lab-conclusion']];const report='TECH 3498 - Lab 1: Identity and Security\n\n'+fields.map(([name,id])=>name+':\n'+(document.getElementById(id)?.value||'[Not recorded]')).join('\n\n')+'\n\nReferences / acknowledgements: [Complete before submission]';const a=document.createElement('a');const url=URL.createObjectURL(new Blob([report],{type:'text/plain'}));a.href=url;a.download='Lab1_Identity_and_Security_Notes.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});

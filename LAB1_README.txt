@@ -1,0 +1,1 @@
+Lab 1 section added to index.html, style.css and app.js. Upload all files to the root of your existing GitHub Pages repository. Visit #lab1-network. This worksheet requires actual observations; do not submit placeholder values. Do not publish personal network details publicly.
