@@ -443,7 +443,29 @@
  <p><b>Volume comparison:</b> The hypothesis is that attack intervals may contain a higher concentration of flows, packets, or bytes than comparable benign intervals. The actual size of any difference must be calculated from the selected dataset.</p></div>
  <div class="a7-card"><h3>Preprocessing and detection methodology</h3><ol><li>Load the downloaded CIC-IDS2017 CSV files and standardize column names.</li><li>Retain BENIGN, DDoS, and DoS categories; remove duplicate records and replace infinite values with missing values.</li><li>Convert numerical features, inspect missing values, and summarize distributions by traffic class.</li><li>Compare flow rate, packet rate, packet counts, and duration with charts and class-specific statistics.</li><li>Use a stratified train/test split and a median-imputation + random-forest classification pipeline, with a fixed random seed.</li><li>Report precision, recall, F1-score, and confusion matrix, including false negatives and false positives.</li></ol><p><a href="assignment7_analysis.py" download>Download reproducible Python analysis script</a> · <a href="ASSIGNMENT7_README.txt" download>Analysis instructions</a></p></div>
  <div class="a7-grid"><article class="a7-card"><h3>Interpretation and availability</h3><p><b>Precision</b> describes how often an alert really corresponds to attack traffic. <b>Recall</b> measures how many actual attacks were caught. <b>F1</b> balances the two. The <b>confusion matrix</b> reveals missed attacks and false alarms.</p><p>Detection can support alerting, rate limiting, traffic filtering, and capacity planning, but detection alone does not guarantee uninterrupted service.</p></article><article class="a7-card"><h3>Results, limitations, and next steps</h3><p><b>Status:</b> Dataset and reproducible analysis method selected. <strong>No measured model scores are claimed yet</strong>; run the included script on downloaded CSV files to generate results and replace this note.</p><p>Limitations: dataset age, possible class imbalance, lab-generated traffic, concept drift, and differences between flow classification and live website monitoring.</p><p>Next: evaluate unseen time periods, examine false negatives, and compare a baseline threshold detector with the trained model.</p></article></div>
- <div class="a7-card"><h3>AI movie project: “The Traffic Surge”</h3><p>A cybersecurity analyst spots a sudden traffic surge against PhishAware, checks traffic patterns, distinguishes a possible DDoS event from normal usage, and recommends defensive controls to protect availability.</p><video controls preload="metadata" playsinline poster="assignment7_poster.png" class="a7-video"><source src="assignment7_storyboard_preview.mp4" type="video/mp4">Your browser does not support video playback.</video><p class="a7-note"><b>Storyboard preview:</b> This is an original animated video preview assembled for the website, <strong>not a Google Flow-generated movie</strong>. To meet the Google Flow portion of the assignment, generate the final AI scenes using the provided prompt, export the movie as <code>assignment7_final_movie.mp4</code>, and replace the preview source above with that file.</p><p><a href="ASSIGNMENT7_FLOW_PROMPTS.txt" download>Download Google Flow scene prompts and narration</a></p></div>
+<div class="a7-card">
+  <h3>AI Movie: PhishAware — Under Attack</h3>
+  <p>
+    This short AI-generated cybersecurity movie was created
+    using Google Flow and edited in CapCut. It features
+    two cybersecurity analysts investigating suspicious
+    network traffic and identifying a possible DDoS attack.
+  </p>
+
+  <video controls preload="metadata" playsinline
+         poster="assignment7_poster.png"
+         class="a7-video">
+    <source src="phishaware_movie.mp4" type="video/mp4">
+    Your browser does not support video playback.
+  </video>
+
+  <p class="a7-note">
+    <b>Final AI Movie:</b> A 16-second animated cybersecurity
+    film featuring AI-generated characters, spoken dialogue,
+    and an educational DDoS attack scenario.
+  </p>
+</div>
+
  <div class="a7-card"><h3>Research conclusion</h3><p>Network-flow features provide a reasonable basis for investigating abnormal behavior linked to DoS and DDoS attacks. A defensible conclusion about how well a detector works requires evaluation on real labeled records. Combining traffic monitoring, careful classification, and layered protections can help security teams respond to threats against website availability.</p><p class="a7-note">Safety: This project uses publicly available research data and offline analysis only. No traffic attacks were performed.</p><p><b>Sources:</b> <a href="https://www.kaggle.com/datasets/dhoogla/cicids2017" target="_blank" rel="noopener">CIC-IDS2017 (Kaggle)</a> · <a href="https://www.unb.ca/cic/datasets/ids-2017.html" target="_blank" rel="noopener">Canadian Institute for Cybersecurity</a></p></div>
 </section>
   </main>
