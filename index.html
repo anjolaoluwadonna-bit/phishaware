@@ -328,13 +328,83 @@
 </section>
 
 <section id="lab1-network" class="section alt">
- <div class="section-head"><span class="eyebrow">TECH 3498 · LAB 01 · IDENTITY AND SECURITY</span><h2>Network Identity &amp; Security Lab</h2><p>Explore IP configuration, network paths, and address resolution. This page documents the required procedure and provides space to enter actual observations from a computer.</p></div>
+<style>
+#lab1-network{--lab-navy:#12264d;--lab-blue:#2563eb;--lab-teal:#0d9488;--lab-violet:#7c3aed;--lab-orange:#ea580c;background:linear-gradient(180deg,#f2f7ff 0%,#f8fafc 100%);color:#172b4d}
+#lab1-network .lab-hero{background:linear-gradient(125deg,#142b62 0%,#314ab5 55%,#0f9a9b 100%);color:white;border-radius:24px;padding:clamp(24px,5vw,52px);box-shadow:0 18px 45px rgba(30,64,175,.2);position:relative;overflow:hidden;margin-bottom:26px}
+#lab1-network .lab-hero:after{content:'◉';position:absolute;right:4%;top:-75px;font-size:290px;opacity:.07;pointer-events:none}
+#lab1-network .lab-hero h2{color:white;font-size:clamp(28px,4vw,44px);margin:12px 0}
+#lab1-network .lab-hero p{color:#e5efff;max-width:760px;line-height:1.65}
+#lab1-network .lab-hero .eyebrow{color:#b9fff0;font-weight:800;letter-spacing:.11em}
+#lab1-network .lab-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+#lab1-network .lab-tags span{padding:8px 13px;border:1px solid #ffffff66;border-radius:999px;background:#ffffff20;color:white;font-size:13px;font-weight:700}
+#lab1-network .lab-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:24px 0}
+#lab1-network .lab-metric{border-radius:17px;background:white;padding:22px 16px;border:1px solid #dbe6ff;box-shadow:0 7px 22px #1e40af0d}
+#lab1-network .lab-metric b{display:block;color:#1d4ed8;font-size:clamp(21px,3vw,30px);line-height:1.2;margin:6px 0}
+#lab1-network .lab-metric small{display:block;color:#64748b;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+#lab1-network .lab-metric em{font-style:normal;color:#475569;font-size:12px}
+#lab1-network .card{border:1px solid #dce7f7;border-radius:18px;box-shadow:0 8px 24px #12264d0b;background:white}
+#lab1-network .card h3{color:#19376b}
+#lab1-network .cards.three>.card:nth-child(3n+1){border-top:4px solid #2563eb}
+#lab1-network .cards.three>.card:nth-child(3n+2){border-top:4px solid #0d9488}
+#lab1-network .cards.three>.card:nth-child(3n){border-top:4px solid #7c3aed}
+#lab1-network .lab-section-title{display:flex;align-items:center;gap:10px;color:#19376b;font-weight:800;margin:10px 0 18px;font-size:22px}
+#lab1-network .lab-section-title:before{content:'';width:7px;height:28px;border-radius:10px;background:linear-gradient(#2563eb,#0d9488)}
+#lab1-network table th{background:#19376b;color:white;padding:13px}
+#lab1-network table td{padding:12px;border-bottom:1px solid #e2e8f0;color:#334155}
+#lab1-network table tbody tr:nth-child(even){background:#f1f7ff}
+#lab1-network .lab-topology{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;align-items:center;margin:18px 0 22px}
+#lab1-network .lab-node{text-align:center;padding:16px 8px;border-radius:14px;background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af;font-weight:750;font-size:13px}
+#lab1-network .lab-node.green{background:#ecfdf5;border-color:#99f6e4;color:#0f766e}
+#lab1-network .lab-node.amber{background:#fffbeb;border-color:#fde68a;color:#92400e}
+#lab1-network .lab-arrow{text-align:center;color:#64748b;font-size:25px}
+#lab1-network .lab-privacy{border-left:4px solid #0d9488;background:#f0fdfa;padding:13px 16px;border-radius:10px;color:#115e59}
+@media(max-width:760px){#lab1-network .lab-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}#lab1-network .lab-topology{grid-template-columns:1fr}#lab1-network .lab-arrow{transform:rotate(90deg)}#lab1-network .lab-hero{border-radius:18px}}
+</style>
+
+ <div class="lab-hero"><span class="eyebrow">TECH 3498 · LAB 01 · IDENTITY AND SECURITY</span><h2>Network Identity &amp; Security Lab</h2><p>A hands-on investigation of network addressing, connectivity, routing, DNS, DHCP, and ARP using real macOS Terminal observations.</p><div class="lab-tags"><span>✓ Terminal testing completed</span><span>✓ 5 Google traces</span><span>✓ 5 Kean traces</span><span>✓ Privacy-safe summary</span></div></div>
+<div class="lab-metrics"><div class="lab-metric"><small>Google ping</small><b>0% loss</b><em>Both 4-packet tests</em></div><div class="lab-metric"><small>Google traceroute</small><b>6–7 hops</b><em>Destination reached in 5/5</em></div><div class="lab-metric"><small>Kean traceroute</small><b>8th hop</b><em>Last responding hop in 5/5</em></div><div class="lab-metric"><small>DHCP lease</small><b>60 min</b><em>ACK received</em></div></div>
  <div class="cards three">
  <article class="card"><h3>1. IP Configuration</h3><p>Identify the local IPv4 address, subnet mask, gateway, DNS server, DHCP settings, and MAC address.</p><p><code>ipconfig /?</code><br><code>ipconfig</code><br><code>ipconfig /all</code></p><p><small>macOS: <code>ifconfig</code>, <code>networksetup -getdnsservers Wi-Fi</code>, and Network settings.</small></p></article>
  <article class="card"><h3>2. Connectivity &amp; Routes</h3><p>Use ping to measure response time and TTL. Trace paths to Kean and Google five times each; compare hops and sketch the topology.</p><p><code>ping [gateway IP]</code><br><code>tracert www.kean.edu</code><br><code>tracert www.google.com</code></p><p><small>macOS: use <code>traceroute</code> instead of <code>tracert</code>.</small></p></article>
  <article class="card"><h3>3. ARP Cache</h3><p>View the local ARP table, clear entries when authorized, and check how entries return after network traffic.</p><p><code>arp -a</code><br><code>arp -d *</code> (Windows admin)<br><code>arp -a</code></p><p><small>macOS: <code>sudo arp -ad</code> where supported. Only change settings on a device/network you are authorized to administer.</small></p></article>
  </div>
- <div class="card" style="margin-top:24px"><h3>My Lab 1 Report — Observation Worksheet</h3><p>Complete the fields with real output. No measurements are pre-filled or claimed as completed. Use the export button to save your notes as a text report.</p>
+
+ <div class="card" style="margin-top:24px">
+  <span class="research-kicker">OBSERVED RESULTS · MACOS TERMINAL</span>
+  <h3>Network configuration and DHCP</h3>
+  <p>During the later tests, DHCP reported a /24 subnet mask (<code>255.255.255.0</code>), a 60-minute lease, and the local router serving as both default gateway and DNS resolver. The DHCP response was an ACK. No DNS servers were manually configured in Wi-Fi settings; macOS reported a DNS resolver automatically.</p>
+  <p><strong>Network change note:</strong> An earlier configuration check showed a different private subnet and gateway. The later DHCP, traceroute, and ARP observations belong to the <code>192.168.1.0/24</code> network. Results from the two configurations are not treated as a single unchanged session.</p>
+ </div>
+ <div class="cards three" style="margin-top:20px">
+  <article class="card"><h3>Gateway ping · earlier network</h3><p><strong>4/4 received · 0% loss</strong></p><p>Average RTT: <strong>4.742 ms</strong>; range 3.649–6.684 ms.</p></article>
+  <article class="card"><h3>Google ping · earlier network</h3><p><strong>Two tests · 0% loss</strong></p><p>Average RTTs: <strong>24.260 ms</strong> and <strong>25.013 ms</strong>; TTL 106.</p></article>
+  <article class="card"><h3>Router ping · later network</h3><p><strong>4/4 received · 0% loss</strong></p><p>Average RTT: <strong>26.708 ms</strong>; range 10.182–69.606 ms; TTL 64.</p></article>
+ </div>
+ <div class="card" style="margin-top:20px">
+  <h3>Traceroute comparison · five trials per destination</h3>
+  <div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;text-align:left"><thead><tr><th scope="col">Trial</th><th scope="col">Google</th><th scope="col">Kean University</th></tr></thead><tbody>
+   <tr><td>1</td><td>Reached at hop 6</td><td>Last responding hop: 8</td></tr>
+   <tr><td>2</td><td>Reached at hop 7</td><td>Last responding hop: 8</td></tr>
+   <tr><td>3</td><td>Destination responded at hop 6</td><td>Last responding hop: 8</td></tr>
+   <tr><td>4</td><td>Destination responded at hop 6</td><td>Last responding hop: 8</td></tr>
+   <tr><td>5</td><td>Reached at hop 6</td><td>Last responding hop: 8</td></tr>
+  </tbody></table></div>
+  <p>Google returned destination responses in all five trials, with slightly varying intermediate paths. Kean's destination did not respond within the 20-hop limit; hops 9–20 returned asterisks. This does <strong>not</strong> establish that the website was offline, because routers and servers may filter traceroute probes.</p>
+  <h3 class="lab-section-title">Observed network topology (simplified)</h3>
+  <p><strong>Google:</strong> The destination responded after 6–7 hops.</p>
+  <div class="lab-topology" aria-label="MacBook to router to internet transit to Google"><div class="lab-node">💻 MacBook</div><div class="lab-arrow">→</div><div class="lab-node">📡 Router &amp; transit</div><div class="lab-arrow">→</div><div class="lab-node green">✓ Google reached</div></div>
+  <p><strong>Kean:</strong> Intermediate routers responded through hop 8, but the destination did not reply within 20 hops.</p>
+  <div class="lab-topology" aria-label="MacBook to router to transit network to Kean destination without traceroute reply"><div class="lab-node">💻 MacBook</div><div class="lab-arrow">→</div><div class="lab-node">📡 Router &amp; transit</div><div class="lab-arrow">→</div><div class="lab-node amber">? Kean: no final reply</div></div>
+  <p class="illustration-note">Topology diagrams are simplified from traceroute observations, not a complete map of physical network links.</p>
+ </div>
+ <div class="card" style="margin-top:20px">
+  <h3>ARP cache observations</h3>
+  <p>The <code>arp -a</code> command returned <strong>10 entries</strong>, including the local router, three devices labeled as iPhones, three incomplete entries, a broadcast entry, and a multicast entry. After pinging the router, the cache still showed 10 entries because its address mapping was already known. The ARP cache was <strong>not cleared</strong> during this test, so cache repopulation after deletion was not measured.</p>
+  <h3>Conclusion</h3>
+  <p>These tests demonstrate how IP configuration, DHCP, DNS, ICMP ping, traceroute, and ARP support network troubleshooting. Ping confirmed connectivity to tested destinations, traceroute revealed variable paths and nonresponsive hops, and ARP displayed local address mappings. Asterisks in traceroute and incomplete ARP entries must be interpreted cautiously rather than assumed to indicate an outage or attack.</p>
+  <p class="lab-privacy">🔒 Privacy note: exact device MAC addresses, host-specific identifiers, and the full ARP table are intentionally excluded from this public website.</p>
+ </div>
+ <div class="card" style="margin-top:24px"><h3>My Lab 1 Report — Observation Worksheet</h3><p>Use this private-in-browser worksheet for additional notes; the verified, privacy-safe findings are summarized above. Use the export button to save your notes as a text report.</p>
  <div class="lab-grid">
  <label>Computer / OS version<input id="lab-os" placeholder="e.g., Windows 11 / macOS version"></label><label>Lab location<input id="lab-location" placeholder="Town or campus building"></label>
  <label>Connection / ISP<input id="lab-isp" placeholder="Wi-Fi or Ethernet; provider"></label><label>IPv4 address<input id="lab-ip" placeholder="Observed address"></label>
