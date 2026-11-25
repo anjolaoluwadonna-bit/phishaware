@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishAware | Think Before You Click</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#home"><span>🛡️</span> PhishAware</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <nav id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#technology">Technology</a>
+      <a href="#cybersecurity">Cybersecurity</a>
+      <a href="#threat-model">Threat Model</a>
+      <a href="#secure-architecture">Architecture</a>
+      <a href="#access-control">Access Control</a><a href="#xss-security">XSS Security</a><a href="#lab1-network">Lab 1: Networking</a><a href="#assignment7">Assignment 7</a><a href="#a4-chat-panel">Chatbot</a><a href="#a4-agent-panel">Digital Guide</a>
+      <a href="#portfolio">Coursework</a>
+      <a href="#research">Research</a>
+      <a href="#results">Results</a>
+      <a class="nav-cta" href="#analyzer">Analyze Email</a>
+    <a href="#lab2">Lab 2</a><a href="#lab3">Lab 3</a><a href="#lab4">Lab 4</a><a href="#assignment9">Assignment 9</a><a href="#assignment10">Assignment 10</a></nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy">
+        <span class="eyebrow">CYBERSECURITY AWARENESS PLATFORM</span>
+        <h1>Think Before <span>You Click.</span></h1>
+        <p>Learn how to recognize phishing attacks, suspicious emails, dangerous links, and common online threats before they fool you.</p>
+        <div class="actions">
+          <a class="btn primary" href="#analyzer">🔍 Analyze an Email</a>
+          <a class="btn secondary" href="#quiz">🧠 Test Your Skills</a>
+        </div>
+        <div class="stats">
+          <div><strong>6+</strong><small>Threat Types</small></div>
+          <div><strong>5</strong><small>Quiz Questions</small></div>
+          <div><strong>24/7</strong><small>Learning</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="shield">🛡️</div>
+        <div class="float-card mail">✉️ Suspicious Email</div>
+        <div class="float-card lock">🔐 Stay Protected</div>
+        <div class="float-card alert">⚠️ Think First</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="eyebrow">LEARN • PRACTICE • PROTECT</span>
+        <h2>What is PhishAware?</h2>
+        <p>PhishAware is an interactive cybersecurity awareness project designed to help everyday users recognize phishing and make safer decisions online.</p>
+      </div>
+      <div class="cards three">
+        <article class="card"><div class="icon">📚</div><h3>Learn</h3><p>Understand phishing, credential attacks, suspicious links, passwords, and social engineering.</p></article>
+        <article class="card"><div class="icon">🎯</div><h3>Practice</h3><p>Use realistic examples and quizzes to practice spotting common warning signs.</p></article>
+        <article class="card"><div class="icon">🛡️</div><h3>Protect</h3><p>Learn practical habits that can help protect your accounts, devices, and personal information.</p></article>
+      </div>
+    </section>
+
+    <section class="section challenge">
+      <div class="section-head">
+        <span class="eyebrow">INTERACTIVE CHALLENGE</span>
+        <h2>Can You Spot the Phish?</h2>
+        <p>Read the simulated email carefully, then decide whether it looks safe or suspicious.</p>
+      </div>
+      <div class="email-card">
+        <div class="email-top"><span>📧 New Message</span><span class="urgent">URGENT</span></div>
+        <p><b>From:</b> Student Account Support &lt;support@rutgers-security-login.net&gt;</p>
+        <p><b>Subject:</b> ⚠️ Your Student Account Will Be Suspended</p>
+        <hr>
+        <p>We detected unusual activity on your student account. Verify your account immediately to prevent suspension.</p>
+        <button class="fake-link">VERIFY ACCOUNT NOW</button>
+      </div>
+      <h3 class="center">Is this email safe or phishing?</h3>
+      <div class="challenge-buttons">
+        <button class="btn danger" onclick="judgeEmail(true)">🚨 PHISHING</button>
+        <button class="btn safe" onclick="judgeEmail(false)">✓ SAFE</button>
+      </div>
+      <div id="challengeResult" class="result hidden"></div>
+    </section>
+
+    <section id="about" class="section alt">
+      <div class="section-head">
+        <span class="eyebrow">ABOUT THE CREATOR</span>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="profile-card">
+          <div class="avatar">AD</div>
+          <h3>Anjolaoluwa Donna Dosu</h3>
+          <p>Senior • Information Technology & Cybersecurity</p>
+          <div class="tag-row"><span>Technology</span><span>Cybersecurity</span><span>Creative</span></div>
+        </div>
+        <div class="about-copy">
+          <h3>Hello! 👋</h3>
+          <p>I am a senior studying Information Technology and Cybersecurity. I created PhishAware to explore how technology can help people recognize cybersecurity threats and make safer decisions online.</p>
+          <div class="mini-grid">
+            <div><b>🎨 Hobbies</b><p>Fitness, photography, fashion, technology, and content creation.</p></div>
+            <div><b>💻 Skills</b><p>HTML, CSS, JavaScript, Python, Java, Linux, databases, and cybersecurity fundamentals.</p></div>
+            <div><b>🎯 Career Interests</b><p>Cybersecurity Analysis, IT, Data Analysis, and Project Management.</p></div>
+            <div><b>🎓 Academic Goals</b><p>Strengthen my technical skills, complete my degree, and gain hands-on experience.</p></div>
+          </div>
+          <div class="fact">✨ <b>Interesting fact:</b> I enjoy taking pictures and creating content in my free time.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="technology" class="section">
+      <div class="section-head">
+        <span class="eyebrow">BEHIND THE PLATFORM</span>
+        <h2>Technology Behind PhishAware</h2>
+        <p>The project combines front-end technologies with cybersecurity concepts to create an interactive learning experience.</p>
+      </div>
+      <div class="cards three tech-cards">
+        <article class="card"><div class="icon">🌐</div><h3>HTML</h3><p>Provides the structure and content of the website.</p></article>
+        <article class="card"><div class="icon">🎨</div><h3>CSS</h3><p>Creates the responsive layout, colors, cards, and visual effects.</p></article>
+        <article class="card"><div class="icon">⚡</div><h3>JavaScript</h3><p>Powers quizzes, simulations, the analyzer demo, and interactive tools.</p></article>
+        <article class="card"><div class="icon">🤖</div><h3>AI Analysis</h3><p>Can help identify patterns commonly associated with suspicious emails.</p></article>
+        <article class="card"><div class="icon">🗄️</div><h3>Database</h3><p>Could securely store permitted application data when a backend is added.</p></article>
+        <article class="card"><div class="icon">🔒</div><h3>Secure Web Technology</h3><p>HTTPS, validation, access control, and secure coding help protect users.</p></article>
+      </div>
+      <div class="flow">
+        <span>User</span><b>→</b><span>Browser</span><b>→</b><span>PhishAware</span><b>→</b><span>Analysis</span><b>→</b><span>Result</span>
+      </div>
+    </section>
+
+    <section id="cybersecurity" class="section alt">
+      <div class="section-head">
+        <span class="eyebrow">KNOW THE THREATS</span>
+        <h2>Cybersecurity Awareness</h2>
+      </div>
+      <div class="cards four">
+        <article class="card"><div class="icon">🎣</div><h3>Phishing</h3><p>Messages designed to trick users into revealing information or clicking malicious links.</p></article>
+        <article class="card"><div class="icon">🔑</div><h3>Credential Attacks</h3><p>Attempts to steal, guess, or reuse usernames and passwords.</p></article>
+        <article class="card"><div class="icon">🔗</div><h3>Suspicious Links</h3><p>Links can disguise unfamiliar domains or imitate trusted websites.</p></article>
+        <article class="card"><div class="icon">🔐</div><h3>Password Security</h3><p>Use strong, unique passwords and avoid password reuse.</p></article>
+        <article class="card"><div class="icon">📱</div><h3>MFA</h3><p>Multi-factor authentication adds another verification step beyond a password.</p></article>
+        <article class="card"><div class="icon">🧠</div><h3>Social Engineering</h3><p>Attackers manipulate people using trust, fear, urgency, or curiosity.</p></article>
+        <article class="card"><div class="icon">👁️</div><h3>Data Privacy</h3><p>Limit unnecessary sharing of personal and sensitive information.</p></article>
+        <article class="card"><div class="icon">🦠</div><h3>Malware</h3><p>Malicious software can damage systems, steal data, or provide unauthorized access.</p></article>
+      </div>
+
+      <div id="quiz" class="tool-panel">
+        <span class="eyebrow">QUICK QUIZ</span>
+        <h2>Test Your Cybersecurity Skills</h2>
+        <div id="quizBox"></div>
+      </div>
+
+      <div class="tool-panel">
+        <span class="eyebrow">RISK CHECKER</span>
+        <h2>What's the Risk?</h2>
+        <div class="risk-grid">
+          <label>Does the message create urgency?<select id="r1"><option value="0">No</option><option value="1">Yes</option></select></label>
+          <label>Does it request personal information?<select id="r2"><option value="0">No</option><option value="1">Yes</option></select></label>
+          <label>Do you recognize the sender?<select id="r3"><option value="1">No</option><option value="0">Yes</option></select></label>
+          <label>Does the URL look unusual?<select id="r4"><option value="0">No</option><option value="1">Yes</option></select></label>
+        </div>
+        <button class="btn primary" onclick="calculateRisk()">Calculate Risk</button>
+        <div id="riskResult" class="result hidden"></div>
+      </div>
+    </section>
+
+    <section id="threat-model" class="section">
+      <div class="section-head">
+        <span class="eyebrow">STRIDE FRAMEWORK</span>
+        <h2>Threat Model</h2>
+        <p>This threat model identifies potential threats to PhishAware and shows where security controls can reduce risk.</p>
+      </div>
+      <div class="architecture">
+        <div class="node"><b>👤 User</b><small>Credential & authentication attacks</small></div><span>↓</span>
+        <div class="node"><b>🌐 Web Browser</b><small>Cross-Site Scripting (XSS)</small></div><span>↓</span>
+        <div class="node"><b>🖥️ Web Server</b><small>Denial-of-Service</small></div><span>↓</span>
+        <div class="node"><b>⚙️ Application</b><small>Authorization & unauthorized access</small></div><span>↓</span>
+        <div class="node"><b>🗄️ Database</b><small>SQL injection & data leakage</small></div>
+      </div>
+
+      <h3 class="subhead">Potential Security Threats</h3>
+      <div class="cards four">
+        <article class="card threat"><span>HIGH</span><h3>Authentication Attacks</h3><p>Attackers may attempt to access accounts using compromised credentials.</p><small><b>Mitigation:</b> MFA, strong password policies, rate limiting.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>Authorization Attacks</h3><p>Users may attempt to access resources outside their permitted role.</p><small><b>Mitigation:</b> Server-side authorization checks and least privilege.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>SQL Injection</h3><p>Malicious input may attempt to manipulate database queries.</p><small><b>Mitigation:</b> Parameterized queries and input validation.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>Cross-Site Scripting</h3><p>Untrusted content may attempt to execute scripts in a browser.</p><small><b>Mitigation:</b> Output encoding, sanitization, and CSP.</small></article>
+        <article class="card threat"><span>MEDIUM</span><h3>Denial-of-Service</h3><p>Excessive requests may reduce application availability.</p><small><b>Mitigation:</b> Rate limiting and traffic monitoring.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>Credential Attacks</h3><p>Stolen or reused credentials can be used to access accounts.</p><small><b>Mitigation:</b> MFA and credential protections.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>Data Leakage</h3><p>Sensitive information could be exposed through insecure handling.</p><small><b>Mitigation:</b> Encryption, access control, and minimal data collection.</small></article>
+        <article class="card threat"><span>HIGH</span><h3>Unauthorized Access</h3><p>An attacker may attempt to reach protected resources.</p><small><b>Mitigation:</b> Authentication, authorization, logging.</small></article>
+      </div>
+
+      <h3 class="subhead">STRIDE Analysis</h3>
+      <div class="stride">
+        <div><b>S — Spoofing</b><p>Pretending to be another user. Protect with strong authentication and MFA.</p></div>
+        <div><b>T — Tampering</b><p>Unauthorized data changes. Protect with validation and integrity controls.</p></div>
+        <div><b>R — Repudiation</b><p>Denying an action occurred. Protect with appropriate audit logging.</p></div>
+        <div><b>I — Information Disclosure</b><p>Exposure of confidential data. Protect with encryption and access controls.</p></div>
+        <div><b>D — Denial of Service</b><p>Making services unavailable. Protect with rate limiting and monitoring.</p></div>
+        <div><b>E — Elevation of Privilege</b><p>Gaining excessive permissions. Protect with least privilege and authorization checks.</p></div>
+      </div>
+    </section>
+
+
+    <section id="secure-architecture" class="section alt">
+      <div class="section-head">
+        <span class="eyebrow">ASSIGNMENT 3 · SECURE WEB ARCHITECTURE</span>
+        <h2>Designing a Secure PhishAware Platform</h2>
+        <p>How PhishAware works today, and how its architecture would evolve into a secure, account-based phishing analysis service.</p>
+      </div>
+      <div class="arch-status-grid">
+        <article class="arch-status arch-live"><span class="arch-pill">CURRENT IMPLEMENTATION</span><h3>Static educational website</h3><p>GitHub Pages serves HTML, CSS, JavaScript, and images over HTTPS. The quiz, chatbot, and phishing analyzer run in the visitor's browser. There is no custom backend, database, login, or server-side session today.</p></article>
+        <article class="arch-status arch-future"><span class="arch-pill">PROPOSED ARCHITECTURE</span><h3>Secure full-stack expansion</h3><p>A dedicated web/API server would support user accounts, server-side phishing analysis, protected data storage, access controls, and monitored sessions. These are design decisions, not deployed features.</p></article>
+      </div>
+      <div class="arch-panel">
+        <h3>Architecture &amp; data flow</h3>
+        <p class="arch-muted">Proposed design: browser → HTTPS web server → authenticated application API → database. The current site uses only the browser and GitHub Pages portions.</p>
+        <div class="arch-flow" role="img" aria-label="Proposed PhishAware architecture: user browser sends HTTPS requests to web server, web server forwards requests to application layer, application layer accesses database; authentication, authorization, validation and session controls protect the application.">
+          <div class="arch-box"><span>01 · FRONTEND</span><strong>👤 User Browser</strong><small>HTML · CSS · JavaScript</small><em>Implemented</em></div>
+          <div class="arch-arrow">→<small>HTTPS</small></div>
+          <div class="arch-box"><span>02 · WEB SERVER</span><strong>🌐 Web Delivery</strong><small>GitHub Pages today; reverse proxy in future</small><em>Static hosting live</em></div>
+          <div class="arch-arrow">→<small>API request</small></div>
+          <div class="arch-box arch-planned"><span>03 · APPLICATION</span><strong>⚙️ Analysis API</strong><small>Validation · phishing model · access checks</small><em>Proposed</em></div>
+          <div class="arch-arrow">→<small>Least privilege</small></div>
+          <div class="arch-box arch-planned"><span>04 · DATABASE</span><strong>🗄️ Protected Storage</strong><small>Users · results · minimal audit logs</small><em>Proposed</em></div>
+        </div>
+        <div class="arch-security-row"><span>🔒 Encryption in transit and at rest</span><span>🪪 Authentication + secure sessions</span><span>🛂 Role-based authorization</span><span>🧹 Input validation + rate limits</span></div>
+      </div>
+      <div class="section-head arch-subhead"><span class="eyebrow">NINE REQUIRED COMPONENTS</span><h3>Security controls and responsibilities</h3><p>Each component has a clear role in the design, with current functionality separated from planned functionality.</p></div>
+      <div class="arch-components">
+        <article class="arch-component"><span>01</span><h4>Frontend</h4><p>Responsive pages, email input form, learning challenges, and result displays. Treat every input as untrusted.</p><b>Implemented</b></article>
+        <article class="arch-component"><span>02</span><h4>Web server</h4><p>GitHub Pages currently hosts static files via HTTPS. A future reverse proxy could route API requests and apply traffic limits.</p><b>Static hosting implemented</b></article>
+        <article class="arch-component"><span>03</span><h4>Application layer</h4><p>Future server-side API for phishing classification, validation, business rules, logging, and model inference.</p><b>Proposed</b></article>
+        <article class="arch-component"><span>04</span><h4>Database</h4><p>Future database for account records and optional saved analyses, with minimal retention and restricted service credentials.</p><b>Proposed</b></article>
+        <article class="arch-component"><span>05</span><h4>Authentication</h4><p>Future sign-in using strong password hashing, account protection, and optional multi-factor authentication.</p><b>Proposed</b></article>
+        <article class="arch-component"><span>06</span><h4>Authorization</h4><p>Server-side checks ensure users can access only their own analyses; administrators receive limited, audited privileges.</p><b>Proposed</b></article>
+        <article class="arch-component"><span>07</span><h4>Encryption</h4><p>HTTPS protects traffic to the published site today. Future sensitive records would also use encryption at rest and managed secrets.</p><b>HTTPS implemented · storage proposed</b></article>
+        <article class="arch-component"><span>08</span><h4>Session management</h4><p>Future sessions would use Secure, HttpOnly, SameSite cookies, short expiration times, and session invalidation on logout.</p><b>Proposed</b></article>
+        <article class="arch-component"><span>09</span><h4>Input validation</h4><p>Future API validates email length and format, limits request size, escapes displayed content, and avoids executing pasted links or HTML.</p><b>Server-side controls proposed</b></article>
+      </div>
+      <div class="arch-panel arch-example">
+        <h3>Example: checking a suspicious email</h3>
+        <ol class="arch-steps"><li><strong>Submit:</strong> The user pastes a suspicious email into the frontend.</li><li><strong>Protect:</strong> HTTPS encrypts the request to the future API; rate limits and input validation reject unsafe or oversized requests.</li><li><strong>Analyze:</strong> The application layer runs the detection model and creates a risk explanation without opening links in the email.</li><li><strong>Control access:</strong> If saving is enabled, the server checks the user's identity and permission before writing an encrypted record.</li><li><strong>Respond:</strong> The frontend shows a risk score, warning signs, and safety guidance without rendering untrusted HTML.</li></ol>
+        <p class="arch-note"><strong>Security principle:</strong> Do not store pasted email content by default. If saved analyses are added later, request consent and apply retention limits. This design also supports STRIDE mitigations for spoofing, tampering, information disclosure, and denial of service.</p>
+      </div>
+    </section>
+
+
+    <section id="access-control" class="section alt">
+      <div class="a4-feature-launch"><div><strong>NEW · ASSIGNMENT 4</strong><h3>Chat with the security assistant or meet your digital guide</h3><p>Try the working browser demonstrations below. The chatbot uses prepared cybersecurity answers, and the digital guide can speak answers aloud on supported browsers.</p></div><div class="a4-actions"><a class="btn primary" href="#a4-chat-panel">💬 Open Chatbot</a><a class="btn secondary" href="#a4-agent-panel">🧑‍💻 Meet Digital Guide</a></div></div>
+      <div class="section-head"><span class="eyebrow">ASSIGNMENT 04 · COMPUTER SECURITY</span><h2>Authentication &amp; Access Control</h2><p>Explore how identity verification, role-based permissions, an assistant, and a digital-person interface fit into a secure phishing-awareness platform.</p></div>
+      <div class="cards three">
+        <article class="card"><span class="research-kicker">01 · AUTHENTICATION</span><h3>Who are you?</h3><p>Authentication verifies a person's identity, for example with a password and multifactor authentication. A real system must check credentials on a trusted server.</p></article>
+        <article class="card"><span class="research-kicker">02 · AUTHORIZATION</span><h3>What can you do?</h3><p>Authorization checks what an authenticated person is allowed to access. A regular user should not be able to manage other users or read security logs.</p></article>
+        <article class="card"><span class="research-kicker">03 · SECURE DESIGN</span><h3>Enforce on the server</h3><p>In production, the server checks every protected request, stores password hashes securely, and manages sessions. Hiding a button alone is not security.</p></article>
+      </div>
+      <div class="a4-panel" style="margin-top:26px">
+        <div class="a4-top"><div><span class="research-kicker">INTERACTIVE ROLE-BASED ACCESS DEMO</span><h3>Explore regular-user vs. administrator permissions</h3></div><span class="status pending">Simulated roles · no real accounts</span></div>
+        <p class="small-note">Switch roles to demonstrate authorization. This is a browser-only teaching example; selecting “Administrator” does not grant real privileges.</p>
+        <div class="a4-actions"><button class="btn primary" id="roleUser" type="button">👤 Regular User</button><button class="btn secondary" id="roleAdmin" type="button">🛡️ Administrator</button><button class="btn secondary" id="roleGuest" type="button">🚪 Sign out (Guest)</button></div>
+        <p id="roleStatus" aria-live="polite" class="a4-status">Active demonstration role: Guest</p>
+        <div class="a4-permissions" id="rolePermissions"></div>
+        <div class="a4-demo-grid">
+          <div class="a4-demo-box"><h4>Personal profile</h4><label for="demoName">Display name</label><input id="demoName" maxlength="60" value="PhishAware Learner" disabled><button class="btn secondary" id="saveDemoName" type="button" disabled>Save profile (demo)</button><p class="small-note" id="profileFeedback">Choose a role to begin.</p></div>
+          <div class="a4-demo-box"><h4>Administrator controls</h4><button class="btn secondary" id="demoUsers" type="button" disabled>Manage users</button><button class="btn secondary" id="demoLogs" type="button" disabled>View security logs</button><button class="btn secondary" id="demoContent" type="button" disabled>Manage website content</button><p id="adminFeedback" class="small-note">Admin actions are simulated, with no real user records.</p></div>
+        </div>
+      </div>
+      <div class="a4-panel" id="a4-chat-panel" style="margin-top:26px">
+        <div class="a4-top"><div><span class="research-kicker">PART 2 · CHATBOT</span><h3>PhishAware Security Assistant</h3></div><span class="status pending">Educational response engine</span></div>
+        <p>Ask questions about phishing, passwords, MFA, suspicious links, and privacy. The working assistant uses local, topic-based responses. It is <strong>not yet connected to a generative AI model</strong>; a protected AI API is a planned upgrade.</p>
+        <div id="a4ChatHistory" class="a4-chat-history" aria-live="polite"><div class="a4-bubble bot">Hello! Ask me how to recognize phishing or protect an account.</div></div>
+        <form id="a4ChatForm" class="a4-chat-form"><label class="sr-only" for="a4ChatQuestion">Your question</label><input id="a4ChatQuestion" placeholder="e.g. How do I spot a fake email?" maxlength="500" required><button class="btn primary" type="submit">Send question</button></form>
+      </div>
+      <div class="a4-panel" id="a4-agent-panel" style="margin-top:26px">
+        <div class="a4-top"><div><span class="research-kicker">PART 3 · DIGITAL PERSON</span><h3>Meet your interactive security guide</h3></div><span class="status pending">Photo-to-avatar preview · browser demo</span></div>
+        <p>Demonstration workflow: <strong>Upload Photo → Create Avatar Preview → Talk → Ask Questions → Hear Answers.</strong> The uploaded photo is displayed locally as a circular avatar; this is <strong>not AI image generation</strong>. Generating a new AI likeness requires a separate image-generation service.</p>
+        <div class="a4-avatar-layout"><div class="a4-avatar-column"><div class="a4-avatar" id="a4Avatar" aria-label="Avatar preview"><span id="a4AvatarFallback">🛡️</span><img id="a4AvatarImage" alt="Your uploaded avatar preview" hidden></div><label class="a4-upload" for="a4Photo">Upload a photo (JPG, PNG or WebP)</label><input type="file" id="a4Photo" accept="image/jpeg,image/png,image/webp"><button class="btn secondary" type="button" id="a4RemovePhoto">Remove photo</button><p class="small-note">Your photo stays in this browser tab; it is not uploaded to a server.</p></div>
+        <div class="a4-avatar-conversation"><h4>Talk to your digital guide</h4><p id="a4AvatarAnswer" aria-live="polite">Hello! I'm your PhishAware guide. Ask me a cybersecurity question.</p><form id="a4AvatarForm" class="a4-chat-form"><label class="sr-only" for="a4AvatarQuestion">Ask your guide</label><input id="a4AvatarQuestion" placeholder="Ask about suspicious messages..." maxlength="500" required><button class="btn primary" type="submit">Ask</button></form><div class="a4-actions"><button class="btn secondary" id="a4Speak" type="button">🔊 Speak answer</button><button class="btn secondary" id="a4Listen" type="button">🎤 Ask by voice</button><button class="btn secondary" id="a4Stop" type="button">Stop speaking</button></div><p class="small-note" id="a4VoiceStatus">Voice features depend on your browser's speech support and microphone permission.</p></div></div>
+      </div>
+      <div class="a4-panel" style="margin-top:26px"><span class="research-kicker">IMPLEMENTATION STATUS &amp; NEXT STEPS</span><div class="cards three"><article class="card"><h3>Working now</h3><p>Role switching, permission differences, profile editing demonstration, topic-based conversation, photo preview, and supported browser speech.</p></article><article class="card"><h3>Production security</h3><p>Implement backend sign-in, hashed passwords, MFA, session cookies, server-enforced authorization, audit logs, and protected database storage.</p></article><article class="card"><h3>AI integration</h3><p>Connect a secure server-side language-model API for generated answers and a consent-aware avatar generation service for AI-created digital people.</p></article></div></div>
+    </section>
+
+    <section id="analyzer" class="section alt">
+      <div class="section-head">
+        <span class="eyebrow">PHISHAWARE TOOL</span>
+        <h2>AI-Inspired Phishing Email Analyzer</h2>
+        <p>Paste a suspicious email below. This classroom demonstration checks for common warning signs using local rules.</p>
+      </div>
+      <div class="analyzer">
+        <textarea id="emailInput" placeholder="Paste the suspicious email here..."></textarea>
+        <button class="btn primary big" onclick="analyzeEmail()">🛡️ Analyze Email</button>
+        <div id="scanStatus" class="scan hidden"></div>
+        <div id="analysisResult" class="analysis-result hidden"></div>
+        <p class="disclaimer">⚠️ Educational demonstration only. PhishAware may make mistakes and does not perform a real security scan. Never rely on this tool as the only way to determine whether an email is safe.</p>
+      </div>
+    </section>
+
+    <section class="section achievements">
+      <div class="section-head"><span class="eyebrow">YOUR PROGRESS</span><h2>Cyber Achievements</h2></div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <p id="progressText" class="center">Training progress: 0%</p>
+      <div class="badges">
+        <div id="badge-phish" class="badge">🎣<b>Phishing Spotter</b></div>
+        <div id="badge-quiz" class="badge">🛡️<b>Cyber Defender</b></div>
+        <div id="badge-risk" class="badge">🔎<b>Link Detective</b></div>
+        <div id="badge-analyzer" class="badge">🔐<b>Email Investigator</b></div>
+      </div>
+    </section>
+
+    <!-- Research and coursework are part of the website, not a slide deck. -->
+    
+<section id="xss-security" class="section alt">
+ <div class="section-head"><span class="eyebrow">ASSIGNMENT 06 · COMPUTER SECURITY</span><h2>Cross-Site Scripting (XSS) Security</h2><p>Learn how untrusted input could change a web page and how PhishAware safely handles text submitted by visitors.</p></div>
+ <div class="xss-grid">
+  <article class="card"><span class="research-kicker">01 · SECURITY PROBLEM</span><h3>Untrusted content can become executable code</h3><p>If an application inserts user-supplied text into HTML without protection, the browser may interpret it as markup or JavaScript. This can lead to unwanted page changes, data exposure, or actions performed in a user's session.</p><p><strong>Example:</strong> A malicious comment, profile field, or chatbot message displayed as HTML rather than plain text.</p></article>
+  <article class="card"><span class="research-kicker">02 · SECURITY CONTROL</span><h3>Validate input and encode output</h3><p>Check input length and type, reject invalid data, and display user content using <code>textContent</code> instead of interpreting it with <code>innerHTML</code>. Use context-appropriate output encoding and sanitization when rich HTML is truly necessary.</p></article>
+  <article class="card"><span class="research-kicker">03 · MITIGATION</span><h3>Handle visitor messages safely</h3><p>PhishAware's new practice area treats typed content as text. Production applications should also enforce validation on the server, sanitize permitted HTML, use a carefully configured Content Security Policy, and protect session cookies.</p></article>
+  <article class="card"><span class="research-kicker">04 · SECURITY IMPROVEMENT</span><h3>Lower the risk of script injection</h3><p>Visitors can enter questions and profile information without those messages being interpreted as executable HTML in the protected display. This reduces a common XSS risk, but does not prove the whole website is free from vulnerabilities.</p></article>
+ </div>
+ <div class="xss-demo card"><span class="research-kicker">INTERACTIVE · SAFE XSS DEMONSTRATION</span><h3>See input validation and safe output handling</h3><p>Type a message or choose the harmless markup sample. The output should show the characters exactly as typed, not create a new HTML element. This demonstration does not execute injected scripts.</p>
+  <label for="xssInput">Visitor message (maximum 180 characters)</label><textarea id="xssInput" maxlength="180" rows="3" placeholder="Type a message or use the sample below"></textarea>
+  <div class="xss-actions"><button class="btn primary" type="button" id="xssShow">Validate and display safely</button><button class="btn secondary" type="button" id="xssSample">Insert harmless markup sample</button><button class="btn secondary" type="button" id="xssClear">Clear</button></div>
+  <p id="xssStatus" class="xss-status" role="status" aria-live="polite">No message submitted yet.</p><div class="xss-result"><strong>Safely displayed message</strong><div id="xssOutput" class="xss-output" aria-live="polite">Your message will appear here as plain text.</div></div>
+  <p class="illustration-note">This is a client-side educational demonstration. Server-side validation and a full security review would still be required for a production application.</p>
+ </div>
+ <div class="card xss-summary"><h3>Assignment 6: Security improvement pathway</h3><div class="xss-path"><span>Security Problem<br><small>Untrusted input</small></span><b>↓</b><span>Security Control<br><small>Validation + safe text output</small></span><b>↓</b><span>Mitigation<br><small>Prevent HTML interpretation</small></span><b>↓</b><span>Security Improvement<br><small>Reduced XSS exposure</small></span></div><p><strong>Where this applies in PhishAware:</strong> chatbot questions, digital-guide questions, profile fields, and any future user-generated comments or saved messages.</p></div>
+</section>
+
+<section id="lab1-network" class="section alt">
+<style>
+#lab1-network{--lab-navy:#12264d;--lab-blue:#2563eb;--lab-teal:#0d9488;--lab-violet:#7c3aed;--lab-orange:#ea580c;background:linear-gradient(180deg,#f2f7ff 0%,#f8fafc 100%);color:#172b4d}
+#lab1-network .lab-hero{background:linear-gradient(125deg,#142b62 0%,#314ab5 55%,#0f9a9b 100%);color:white;border-radius:24px;padding:clamp(24px,5vw,52px);box-shadow:0 18px 45px rgba(30,64,175,.2);position:relative;overflow:hidden;margin-bottom:26px}
+#lab1-network .lab-hero:after{content:'◉';position:absolute;right:4%;top:-75px;font-size:290px;opacity:.07;pointer-events:none}
+#lab1-network .lab-hero h2{color:white;font-size:clamp(28px,4vw,44px);margin:12px 0}
+#lab1-network .lab-hero p{color:#e5efff;max-width:760px;line-height:1.65}
+#lab1-network .lab-hero .eyebrow{color:#b9fff0;font-weight:800;letter-spacing:.11em}
+#lab1-network .lab-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+#lab1-network .lab-tags span{padding:8px 13px;border:1px solid #ffffff66;border-radius:999px;background:#ffffff20;color:white;font-size:13px;font-weight:700}
+#lab1-network .lab-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:24px 0}
+#lab1-network .lab-metric{border-radius:17px;background:white;padding:22px 16px;border:1px solid #dbe6ff;box-shadow:0 7px 22px #1e40af0d}
+#lab1-network .lab-metric b{display:block;color:#1d4ed8;font-size:clamp(21px,3vw,30px);line-height:1.2;margin:6px 0}
+#lab1-network .lab-metric small{display:block;color:#64748b;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+#lab1-network .lab-metric em{font-style:normal;color:#475569;font-size:12px}
+#lab1-network .card{border:1px solid #dce7f7;border-radius:18px;box-shadow:0 8px 24px #12264d0b;background:white}
+#lab1-network .card h3{color:#19376b}
+#lab1-network .cards.three>.card:nth-child(3n+1){border-top:4px solid #2563eb}
+#lab1-network .cards.three>.card:nth-child(3n+2){border-top:4px solid #0d9488}
+#lab1-network .cards.three>.card:nth-child(3n){border-top:4px solid #7c3aed}
+#lab1-network .lab-section-title{display:flex;align-items:center;gap:10px;color:#19376b;font-weight:800;margin:10px 0 18px;font-size:22px}
+#lab1-network .lab-section-title:before{content:'';width:7px;height:28px;border-radius:10px;background:linear-gradient(#2563eb,#0d9488)}
+#lab1-network table th{background:#19376b;color:white;padding:13px}
+#lab1-network table td{padding:12px;border-bottom:1px solid #e2e8f0;color:#334155}
+#lab1-network table tbody tr:nth-child(even){background:#f1f7ff}
+#lab1-network .lab-topology{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;align-items:center;margin:18px 0 22px}
+#lab1-network .lab-node{text-align:center;padding:16px 8px;border-radius:14px;background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af;font-weight:750;font-size:13px}
+#lab1-network .lab-node.green{background:#ecfdf5;border-color:#99f6e4;color:#0f766e}
+#lab1-network .lab-node.amber{background:#fffbeb;border-color:#fde68a;color:#92400e}
+#lab1-network .lab-arrow{text-align:center;color:#64748b;font-size:25px}
+#lab1-network .lab-privacy{border-left:4px solid #0d9488;background:#f0fdfa;padding:13px 16px;border-radius:10px;color:#115e59}
+@media(max-width:760px){#lab1-network .lab-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}#lab1-network .lab-topology{grid-template-columns:1fr}#lab1-network .lab-arrow{transform:rotate(90deg)}#lab1-network .lab-hero{border-radius:18px}}
+</style>
+
+ <div class="lab-hero"><span class="eyebrow">TECH 3498 · LAB 01 · IDENTITY AND SECURITY</span><h2>Network Identity &amp; Security Lab</h2><p>A hands-on investigation of network addressing, connectivity, routing, DNS, DHCP, and ARP using real macOS Terminal observations.</p><div class="lab-tags"><span>✓ Terminal testing completed</span><span>✓ 5 Google traces</span><span>✓ 5 Kean traces</span><span>✓ Privacy-safe summary</span></div></div>
+<div class="lab-metrics"><div class="lab-metric"><small>Google ping</small><b>0% loss</b><em>Both 4-packet tests</em></div><div class="lab-metric"><small>Google traceroute</small><b>6–7 hops</b><em>Destination reached in 5/5</em></div><div class="lab-metric"><small>Kean traceroute</small><b>8th hop</b><em>Last responding hop in 5/5</em></div><div class="lab-metric"><small>DHCP lease</small><b>60 min</b><em>ACK received</em></div></div>
+ <div class="cards three">
+ <article class="card"><h3>1. IP Configuration</h3><p>Identify the local IPv4 address, subnet mask, gateway, DNS server, DHCP settings, and MAC address.</p><p><code>ipconfig /?</code><br><code>ipconfig</code><br><code>ipconfig /all</code></p><p><small>macOS: <code>ifconfig</code>, <code>networksetup -getdnsservers Wi-Fi</code>, and Network settings.</small></p></article>
+ <article class="card"><h3>2. Connectivity &amp; Routes</h3><p>Use ping to measure response time and TTL. Trace paths to Kean and Google five times each; compare hops and sketch the topology.</p><p><code>ping [gateway IP]</code><br><code>tracert www.kean.edu</code><br><code>tracert www.google.com</code></p><p><small>macOS: use <code>traceroute</code> instead of <code>tracert</code>.</small></p></article>
+ <article class="card"><h3>3. ARP Cache</h3><p>View the local ARP table, clear entries when authorized, and check how entries return after network traffic.</p><p><code>arp -a</code><br><code>arp -d *</code> (Windows admin)<br><code>arp -a</code></p><p><small>macOS: <code>sudo arp -ad</code> where supported. Only change settings on a device/network you are authorized to administer.</small></p></article>
+ </div>
+
+ <div class="card" style="margin-top:24px">
+  <span class="research-kicker">OBSERVED RESULTS · MACOS TERMINAL</span>
+  <h3>Network configuration and DHCP</h3>
+  <p>During the later tests, DHCP reported a /24 subnet mask (<code>255.255.255.0</code>), a 60-minute lease, and the local router serving as both default gateway and DNS resolver. The DHCP response was an ACK. No DNS servers were manually configured in Wi-Fi settings; macOS reported a DNS resolver automatically.</p>
+  <p><strong>Network change note:</strong> An earlier configuration check showed a different private subnet and gateway. The later DHCP, traceroute, and ARP observations belong to the <code>192.168.1.0/24</code> network. Results from the two configurations are not treated as a single unchanged session.</p>
+ </div>
+ <div class="cards three" style="margin-top:20px">
+  <article class="card"><h3>Gateway ping · earlier network</h3><p><strong>4/4 received · 0% loss</strong></p><p>Average RTT: <strong>4.742 ms</strong>; range 3.649–6.684 ms.</p></article>
+  <article class="card"><h3>Google ping · earlier network</h3><p><strong>Two tests · 0% loss</strong></p><p>Average RTTs: <strong>24.260 ms</strong> and <strong>25.013 ms</strong>; TTL 106.</p></article>
+  <article class="card"><h3>Router ping · later network</h3><p><strong>4/4 received · 0% loss</strong></p><p>Average RTT: <strong>26.708 ms</strong>; range 10.182–69.606 ms; TTL 64.</p></article>
+ </div>
+ <div class="card" style="margin-top:20px">
+  <h3>Traceroute comparison · five trials per destination</h3>
+  <div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;text-align:left"><thead><tr><th scope="col">Trial</th><th scope="col">Google</th><th scope="col">Kean University</th></tr></thead><tbody>
+   <tr><td>1</td><td>Reached at hop 6</td><td>Last responding hop: 8</td></tr>
+   <tr><td>2</td><td>Reached at hop 7</td><td>Last responding hop: 8</td></tr>
+   <tr><td>3</td><td>Destination responded at hop 6</td><td>Last responding hop: 8</td></tr>
+   <tr><td>4</td><td>Destination responded at hop 6</td><td>Last responding hop: 8</td></tr>
+   <tr><td>5</td><td>Reached at hop 6</td><td>Last responding hop: 8</td></tr>
+  </tbody></table></div>
+  <p>Google returned destination responses in all five trials, with slightly varying intermediate paths. Kean's destination did not respond within the 20-hop limit; hops 9–20 returned asterisks. This does <strong>not</strong> establish that the website was offline, because routers and servers may filter traceroute probes.</p>
+  <h3 class="lab-section-title">Observed network topology (simplified)</h3>
+  <p><strong>Google:</strong> The destination responded after 6–7 hops.</p>
+  <div class="lab-topology" aria-label="MacBook to router to internet transit to Google"><div class="lab-node">💻 MacBook</div><div class="lab-arrow">→</div><div class="lab-node">📡 Router &amp; transit</div><div class="lab-arrow">→</div><div class="lab-node green">✓ Google reached</div></div>
+  <p><strong>Kean:</strong> Intermediate routers responded through hop 8, but the destination did not reply within 20 hops.</p>
+  <div class="lab-topology" aria-label="MacBook to router to transit network to Kean destination without traceroute reply"><div class="lab-node">💻 MacBook</div><div class="lab-arrow">→</div><div class="lab-node">📡 Router &amp; transit</div><div class="lab-arrow">→</div><div class="lab-node amber">? Kean: no final reply</div></div>
+  <p class="illustration-note">Topology diagrams are simplified from traceroute observations, not a complete map of physical network links.</p>
+ </div>
+ <div class="card" style="margin-top:20px">
+  <h3>ARP cache observations</h3>
+  <p>The <code>arp -a</code> command returned <strong>10 entries</strong>, including the local router, three devices labeled as iPhones, three incomplete entries, a broadcast entry, and a multicast entry. After pinging the router, the cache still showed 10 entries because its address mapping was already known. The ARP cache was <strong>not cleared</strong> during this test, so cache repopulation after deletion was not measured.</p>
+  <h3>Conclusion</h3>
+  <p>These tests demonstrate how IP configuration, DHCP, DNS, ICMP ping, traceroute, and ARP support network troubleshooting. Ping confirmed connectivity to tested destinations, traceroute revealed variable paths and nonresponsive hops, and ARP displayed local address mappings. Asterisks in traceroute and incomplete ARP entries must be interpreted cautiously rather than assumed to indicate an outage or attack.</p>
+  <p class="lab-privacy">🔒 Privacy note: exact device MAC addresses, host-specific identifiers, and the full ARP table are intentionally excluded from this public website.</p>
+ </div>
+<div class="card" style="margin-top:24px;border-top:5px solid #2563eb">
+<span class="research-kicker">LAB 1 · WEBSITE LABORATORY REPORT</span>
+<h3>1. Description</h3>
+<p>I investigated network identity, IP configuration, DHCP, DNS, connectivity, routing, and ARP on a macOS laptop using Terminal. My goal was to understand how devices communicate on a local network and across the Internet.</p>
+<h3>2. Procedure and Notes</h3>
+<p>I checked network interfaces with <code>ifconfig</code>, the gateway with <code>route -n get default</code>, DNS settings with <code>networksetup -getdnsservers Wi-Fi</code> and <code>scutil --dns</code>, and DHCP with <code>ipconfig getpacket en0</code>. I ran <code>ping -c 4</code> to the gateway, Google and a later router; traced routes to Google and Kean five times each using <code>traceroute -m 20 -w 1</code>; and viewed the ARP table using <code>arp -a</code> before and after router traffic.</p>
+<p><strong>Session note:</strong> The earlier IP/gateway tests and later DHCP/ARP tests were on different private networks. I did not deliberately change an IP address, renew a DHCP lease, or clear the ARP cache; those actions have no observed results to report.</p>
+<h3>3. Results and Reports</h3>
+<p>The result cards, traceroute comparison, and topology sketches above document my observations. In the later session, DHCP acknowledged a 60-minute lease with subnet mask <code>255.255.255.0</code> and gateway/DNS resolver <code>192.168.1.1</code>. Ping tests showed 0% loss; Google was reached in all five traceroutes at 6–7 hops. Kean's destination did not reply within the 20-hop limit, although routers through hop 8 responded. The ARP cache showed ten entries before and after router traffic.</p>
+<h4>Answers to laboratory questions</h4>
+<p><strong>IP:</strong> Windows <code>ipconfig /all</code> displays detailed adapter settings, <code>ipconfig /release</code> releases a DHCP lease, and <code>ipconfig /renew</code> requests renewal. macOS commands used in this lab provide comparable details. A subnet mask identifies the network portion of an IP address; the later <code>/24</code> mask identifies the <code>192.168.1.0/24</code> subnet. I did not intentionally change and restore my IP address.</p>
+<p><strong>Ping:</strong> The first gateway's four RTTs were 4.419, 3.649, 6.684 and 4.216 ms (TTL 255). Google's first four were 12.466, 16.458, 12.413 and 55.702 ms (TTL 106). The later router's four were 69.606, 13.435, 13.609 and 10.182 ms (TTL 64). Replies and 0% loss confirmed that the tested destinations responded to ICMP probes.</p>
+<p><strong>Traceroute:</strong> Google reached the destination at hops 6, 7, 6, 6 and 6, with slightly different routes. Kean's last responding router was hop 8 in each trial; the destination was not confirmed within 20 hops. The largest observed RTTs were 20.709 ms in the Google trials and 47.468 ms in the Kean trials. Nonresponses do not necessarily mean a website is offline. Simplified topology sketches appear above.</p>
+<p><strong>ARP:</strong> <code>arp -a</code> displays the local ARP table. I observed ten entries, including the router, three iPhone-labeled devices, three incomplete entries, and broadcast/multicast entries. The table still had ten entries after pinging the router. Cache clearing and repopulation were not tested.</p>
+<h3>4. Reference and Acknowledgement</h3>
+<p>References: course Lab 1 instructions and my own macOS Terminal output. Utilities used: <code>ifconfig</code>, <code>route</code>, <code>ping</code>, <code>traceroute</code>, <code>arp</code>, <code>networksetup</code>, <code>scutil</code> and <code>ipconfig</code>. I acknowledge the course laboratory instructions for guiding the investigation.</p>
+<p class="lab-privacy">🔒 This report is presented directly on my PhishAware website for link-based submission. Device MAC addresses and full ARP mappings are withheld for privacy. Original Terminal screenshots have not been embedded.</p>
+</div>
+</section>
+
+<section id="portfolio" class="section alt"><div class="section-head"><span class="eyebrow">LEARNING JOURNEY</span><h2>Coursework &amp; Project Portfolio</h2><p>Selected technical projects and assignments exploring web development, artificial intelligence, security analysis, and application design. Each project highlights the tools used and the skills practiced.</p></div><div class="cards three"><article class="card project-showcase"><img class="project-art" src="home-concept.svg" alt="Concept illustration for PhishAware Cybersecurity Website" loading="lazy"><span class="research-kicker">WEB DEVELOPMENT · PROJECT 01</span><h3>PhishAware Cybersecurity Website</h3><p>A responsive cybersecurity awareness platform built with HTML, CSS, and JavaScript. Features include phishing identification activities, a five-question quiz, a rule-based email checker, and a STRIDE threat model.</p><p class="project-stack">HTML · CSS · JavaScript</p><p class="illustration-note">Live website demonstration</p><a class="research-link" href="#home">Explore live website →</a></article><article class="card project-showcase"><img class="project-art" src="ai-concept.svg" alt="Concept illustration for Image Classification with MobileNet" loading="lazy"><span class="research-kicker">ARTIFICIAL INTELLIGENCE · PROJECT 02</span><h3>Image Classification with MobileNet</h3><p>Used TensorFlow.js and MobileNet in a browser-based image classification exercise. Explored how a pretrained model can identify the contents of an uploaded image and return confidence-ranked predictions.</p><p class="project-stack">TensorFlow.js · MobileNet · JavaScript</p><p class="illustration-note">Project concept visualization</p></article><article class="card project-showcase"><img class="project-art" src="node-concept.svg" alt="Concept illustration for ABC / Node.js Application" loading="lazy"><span class="research-kicker">JAVASCRIPT & NODE.JS · PROJECT 03</span><h3>ABC / Node.js Application</h3><p>Developed and tested a JavaScript/Node.js application locally. Practiced structuring an interactive interface, running the development environment, and testing application behavior in a browser.</p><p class="project-stack">Node.js · JavaScript · VS Code</p><p class="illustration-note">Project concept visualization</p></article><article class="card project-showcase"><img class="project-art" src="figma-concept.svg" alt="Concept illustration for Figma Website Prototype" loading="lazy"><span class="research-kicker">USER INTERFACE DESIGN · PROJECT 04</span><h3>Figma Website Prototype</h3><p>Designed the early PhishAware screens in Figma, planning the homepage, About Me, Technology, Cybersecurity, and Threat Model sections before implementing the website in code.</p><p class="project-stack">Figma · Wireframing · Prototyping</p><p class="illustration-note">Project concept visualization</p></article><article class="card project-showcase"><img class="project-art" src="stride-concept.svg" alt="Concept illustration for STRIDE Threat Modeling" loading="lazy"><span class="research-kicker">SECURITY ANALYSIS · PROJECT 05</span><h3>STRIDE Threat Modeling</h3><p>Analyzed potential security threats through the STRIDE framework: spoofing, tampering, repudiation, information disclosure, denial of service, and elevation of privilege. Connected risks to proposed mitigations.</p><p class="project-stack">STRIDE · Risk Assessment · Mitigations</p><p class="illustration-note">View threat model on this website</p><a class="research-link" href="#threat-model">Explore STRIDE analysis →</a></article><article class="card project-showcase"><img class="project-art" src="linux-concept.svg" alt="Concept illustration for Linux Command-Line Exploration" loading="lazy"><span class="research-kicker">LINUX & SYSTEMS · PROJECT 06</span><h3>Linux Command-Line Exploration</h3><p>Practiced using an Ubuntu environment, exploring shell commands, directory navigation, file paths, command history, help pages, and Linux distribution comparisons.</p><p class="project-stack">Ubuntu · Linux · Terminal</p><p class="illustration-note">Project concept visualization</p></article><article class="card project-showcase"><img class="project-art" src="game-concept.svg" alt="Concept illustration for Catch the Stars JavaScript Game" loading="lazy"><span class="research-kicker">FRONT-END PROGRAMMING · PROJECT 07</span><h3>Catch the Stars JavaScript Game</h3><p>Created a browser-based interactive game using HTML, CSS, and JavaScript, practicing user interaction, game state, and interface testing.</p><p class="project-stack">HTML · CSS · JavaScript</p><p class="illustration-note">Project concept visualization</p></article><article class="card project-showcase"><img class="project-art" src="react-concept.svg" alt="Concept illustration for React Campus Event Tracker" loading="lazy"><span class="research-kicker">WEB APPLICATIONS · PROJECT 08</span><h3>React Campus Event Tracker</h3><p>Built a React-based campus event tracker to practice component-based interfaces, local development with Vite, and organizing information in a user-friendly dashboard.</p><p class="project-stack">React · Vite · JavaScript</p><p class="illustration-note">Project concept visualization</p></article></div><div class="portfolio-summary"><h3>How these projects connect</h3><p>My coursework combines practical programming, interface design, operating systems, and cybersecurity. PhishAware brings those skills together in one interactive website. My research investigates machine-learning methods for phishing email detection using a carefully selected Kaggle dataset.</p></div></section>
+
+    <section id="research" class="section">
+      <div class="section-head"><span class="eyebrow">KAGGLE RESEARCH PROJECT</span><h2>Can Machine Learning Detect Phishing Emails?</h2><p>PhishAware: Comparative Evaluation of Machine Learning and Natural Language Processing for Email Threat Detection</p></div>
+      <div class="research-highlight"><div><span class="status pending">Research design</span><h3>Research problem</h3><p>Phishing emails impersonate trusted senders and attempt to steal credentials or sensitive information. This study aims to determine how effectively different classifiers can distinguish phishing messages from legitimate emails.</p><h3>Why this project?</h3><p>It extends PhishAware's current educational, rule-based email checker toward evidence-based phishing detection and connects security awareness with measurable machine-learning research.</p></div><div class="research-side"><span class="eyebrow">DATA SOURCE</span><h3>Kaggle email datasets</h3><p>Research input: labeled phishing and legitimate email text. The study will use labeled email text to compare traditional machine learning with transformer-based classification.</p><a class="btn secondary" href="https://www.kaggle.com/datasets?search=phishing%20email" target="_blank" rel="noopener noreferrer">Browse Kaggle phishing datasets ↗</a><p class="small-note">The study distinguishes phishing from general spam and emphasizes reliable labels.</p></div></div>
+      <div class="research-core" aria-label="Research question, aim and hypothesis">
+        <div class="research-core-main">
+          <span class="research-kicker">CENTRAL RESEARCH QUESTION</span>
+          <h3>How effectively can machine-learning models detect phishing emails?</h3>
+          <p>Which of Logistic Regression, Random Forest, and DistilBERT offers the best balance of detection performance and computational efficiency?</p>
+        </div>
+        <div class="research-core-grid">
+          <article class="card"><span class="research-kicker">RESEARCH AIM</span><h3>Evaluate and improve phishing detection</h3><p>Compare machine-learning approaches for distinguishing phishing emails from legitimate messages and explore how the findings could improve PhishAware.</p></article>
+          <article class="card"><span class="research-kicker">RESEARCH HYPOTHESIS</span><h3>Does context-aware language modeling help?</h3><p>DistilBERT may identify sophisticated phishing language more effectively than traditional models, but only experiments can determine whether this hypothesis holds.</p></article>
+        </div>
+      </div>
+
+      <div class="research-visual" aria-label="Research workflow infographic">
+        <div class="visual-heading"><span class="research-kicker">RESEARCH PIPELINE</span><h3>From raw emails to safer inboxes</h3><p>My planned experimental workflow — each stage will be documented for reproducibility.</p></div>
+        <div class="pipeline">
+          <div><b>01</b><span>📩</span><strong>Kaggle emails</strong><small>Audit sources &amp; labels</small></div><i>→</i>
+          <div><b>02</b><span>🧹</span><strong>Clean &amp; split</strong><small>Deduplicate; prevent leakage</small></div><i>→</i>
+          <div><b>03</b><span>🧠</span><strong>Train 3 models</strong><small>LR · RF · DistilBERT</small></div><i>→</i>
+          <div><b>04</b><span>📊</span><strong>Evaluate</strong><small>Precision · Recall · F1</small></div><i>→</i>
+          <div><b>05</b><span>🛡️</span><strong>PhishAware</strong><small>Explore integration</small></div>
+        </div>
+      </div>
+      <h3 class="subhead">Why Compare Three Different Models?</h3>
+      <div class="model-tradeoffs">
+        <div><span>01 · BASELINE</span><h4>Logistic Regression</h4><p>TF-IDF text features, fast to train, easier to interpret.</p><strong>Question:</strong> Can a simple model already perform well?</div>
+        <div><span>02 · ENSEMBLE</span><h4>Random Forest</h4><p>Multiple decision trees can capture nonlinear feature patterns.</p><strong>Question:</strong> Do richer patterns improve classification?</div>
+        <div><span>03 · TRANSFORMER</span><h4>DistilBERT</h4><p>Uses pretrained contextual language representations; requires more compute.</p><strong>Question:</strong> Does context justify the extra cost?</div>
+      </div>
+      <h3 class="subhead">Research Objectives</h3>
+      <ol class="research-objectives"><li>Choose and validate a labeled Kaggle email dataset, carefully distinguishing phishing from ordinary spam.</li><li>Clean and prepare email text and create fair training, validation, and test splits.</li><li>Train and compare Logistic Regression, Random Forest, and DistilBERT.</li><li>Evaluate accuracy, precision, recall, F1-score, and computational efficiency.</li><li>Identify the most suitable approach and explore its potential integration into PhishAware.</li></ol>
+      <h3 class="subhead">Research Methodology</h3>
+      <div class="cards four"><article class="card"><span class="step-num">01</span><h3>Collect &amp; Audit</h3><p>Select a Kaggle dataset, review its provenance and labels, and check missing values, duplicates, and class balance.</p></article><article class="card"><span class="step-num">02</span><h3>Prepare the Data</h3><p>Clean text, split data into training/validation/test sets, and prevent duplicate or source-based leakage.</p></article><article class="card"><span class="step-num">03</span><h3>Train &amp; Compare</h3><p>Train three proposed classifiers using the same evaluation split and compare performance fairly.</p></article><article class="card"><span class="step-num">04</span><h3>Explain &amp; Apply</h3><p>Study false negatives, discuss limitations, and explore how findings might improve PhishAware.</p></article></div>
+      <h3 class="subhead">Three Proposed AI Models</h3>
+      <div class="cards three"><article class="card"><span class="research-kicker">MODEL 01 · BASELINE</span><h3>Logistic Regression</h3><p>A fast, interpretable text classifier using TF-IDF features. Establishes a strong traditional ML baseline.</p><span class="status pending">Model architecture</span></article><article class="card"><span class="research-kicker">MODEL 02 · ENSEMBLE</span><h3>Random Forest</h3><p>Combines multiple decision trees to learn patterns in engineered email features or text vectors.</p><span class="status pending">Model architecture</span></article><article class="card"><span class="research-kicker">MODEL 03 · NLP</span><h3>DistilBERT</h3><p>A pretrained transformer to fine-tune for email text classification, subject to compute and dataset constraints.</p><span class="status pending">Model architecture</span></article></div>
+    </section>
+
+    <section id="results" class="section alt">
+      <div class="section-head"><span class="eyebrow">EVIDENCE &amp; EVALUATION</span><h2>Experimental Results</h2><p>Evaluation framework for comparing phishing email classifiers. The live rule-based analyzer elsewhere on this site is a working demonstration; it is not a trained model.</p></div>
+
+      <div class="demo-dashboard">
+        <div class="visual-heading"><span class="research-kicker">INTERACTIVE EVALUATION DASHBOARD</span><h3>What would a phishing detector's results mean?</h3><p>Adjust the example below to see how missed phishing messages affect evaluation metrics.</p><span class="demo-warning">ILLUSTRATIVE SCENARIO — NOT TRAINED MODEL RESULTS OR KAGGLE DATA</span></div>
+        <div class="dashboard-grid">
+          <div class="dash-card">
+            <h4>Example confusion matrix</h4>
+            <p class="dash-muted">100 fictional test emails: 40 phishing, 60 legitimate.</p>
+            <div class="matrix-key"><span>Predicted phishing</span><span>Predicted legitimate</span></div>
+            <div class="matrix-grid">
+              <div class="matrix-cell hit"><strong id="tpVal">32</strong><small>True positive</small></div>
+              <div class="matrix-cell miss"><strong id="fnVal">8</strong><small>Missed phishing</small></div>
+              <div class="matrix-cell miss"><strong id="fpVal">6</strong><small>False alarm</small></div>
+              <div class="matrix-cell hit"><strong id="tnVal">54</strong><small>True negative</small></div>
+            </div>
+            <div class="matrix-labels">Top row: actual phishing · Bottom row: actual legitimate</div>
+            <label class="scenario-label" for="caughtSlider">Phishing emails caught: <output id="caughtOutput">32</output> of 40</label>
+            <input id="caughtSlider" type="range" min="0" max="40" value="32" step="1" />
+            <label class="scenario-label" for="falseSlider">Legitimate emails incorrectly flagged: <output id="falseOutput">6</output> of 60</label>
+            <input id="falseSlider" type="range" min="0" max="60" value="6" step="1" />
+          </div>
+          <div class="dash-card">
+            <h4>Metrics change as you adjust the scenario</h4>
+            <div class="metric-rows">
+              <div class="metric-row"><div><span>Accuracy</span><strong id="accText">86.0%</strong></div><div class="metric-track"><div id="accBar" style="width:86%"></div></div></div>
+              <div class="metric-row"><div><span>Precision</span><strong id="precText">84.2%</strong></div><div class="metric-track"><div id="precBar" style="width:84.2%"></div></div></div>
+              <div class="metric-row"><div><span>Recall</span><strong id="recText">80.0%</strong></div><div class="metric-track"><div id="recBar" style="width:80%"></div></div></div>
+              <div class="metric-row"><div><span>F1-score</span><strong id="f1Text">82.1%</strong></div><div class="metric-track"><div id="f1Bar" style="width:82.1%"></div></div></div>
+            </div>
+            <p class="dash-insight" id="metricInsight" aria-live="polite">Missed phishing emails are false negatives. Reducing them improves recall.</p>
+            <button class="btn secondary" id="resetScenario" type="button">Reset example</button>
+          </div>
+        </div>
+        <p class="demo-caption">This interactive graph teaches how evaluation metrics work. All counts are invented teaching examples, not experimental measurements. The three proposed models have not been trained or benchmarked here.</p>
+      </div>
+      <div class="research-visual">
+        <div class="visual-heading"><span class="research-kicker">EXPERIMENTAL DESIGN</span><h3>What I will measure in the real experiments</h3></div>
+        <div class="cards three"><article class="card"><h3>Detection quality</h3><p>Compare precision, recall, F1, accuracy, and confusion matrices on the same held-out test set.</p></article><article class="card"><h3>Practical efficiency</h3><p>Record training time, inference time, and model size under documented hardware conditions.</p></article><article class="card"><h3>Error analysis</h3><p>Review false negatives, false positives, class balance, and potential dataset leakage.</p></article></div>
+      </div>
+      <div class="results-panel"><div class="results-head"><h3>Experimental design and evaluation criteria</h3><span class="status pending">Research methodology</span></div><div class="cards three"><article class="card"><h3>Precision</h3><p>Of the messages predicted as phishing, how many are actually phishing? This measures false-alarm control.</p></article><article class="card"><h3>Recall</h3><p>Of all phishing messages, how many are detected? High recall is important to reduce missed threats.</p></article><article class="card"><h3>F1-score</h3><p>The harmonic mean of precision and recall, useful for evaluating performance on imbalanced datasets.</p></article></div><h3 class="subhead">Working prototype: rule-based phishing analysis</h3><p>PhishAware already demonstrates email risk detection using explainable warning signals such as urgent requests, suspicious links, and demands for credentials. Use the live analyzer below to see the current prototype in action. This demonstration is not presented as machine-learning accuracy data.</p><a class="btn primary" href="#analyzer">Try the live email analyzer →</a><p class="small-note">Controlled model comparisons and measured scores belong to the later experimental stage; no numerical model results are claimed without running the experiments.</p></div>
+      <div class="research-visual"><div class="visual-heading"><span class="research-kicker">PROJECT ROADMAP</span><h3>From working prototype to final research paper</h3></div><div class="roadmap"><div><span class="roadmap-dot complete"></span><b>Completed</b><h4>PhishAware website</h4><p>Educational pages, phishing activities, STRIDE analysis, and rule-based email checker.</p></div><div><span class="roadmap-dot current"></span><b>Research design</b><h4>Question, goals &amp; model selection</h4><p>Defined the proposed comparison and evaluation criteria.</p></div><div><span class="roadmap-dot"></span><b>Upcoming</b><h4>Dataset and experiments</h4><p>Validate Kaggle data; train and evaluate the models fairly.</p></div><div><span class="roadmap-dot"></span><b>Final phase</b><h4>Research paper &amp; conclusions</h4><p>Report measured findings, limitations, security implications, and next steps.</p></div></div></div>
+      <h3 class="subhead">Next Steps</h3><div class="cards three"><article class="card"><h3>1. Validate Dataset</h3><p>Choose the exact Kaggle dataset and verify phishing labels, ethical use, and data quality.</p></article><article class="card"><h3>2. Run Experiments</h3><p>Build reproducible Python notebooks, train models, record metrics, and analyze mistakes.</p></article><article class="card"><h3>3. Final Research Paper</h3><p>Document the security problem, methodology, contributions, experimental results, limitations, and conclusions.</p></article></div>
+      <div class="research-highlight next-banner"><div><span class="eyebrow">EXPECTED SECURITY CONTRIBUTION</span><h3>From awareness to evaluated detection</h3><p>The intended contribution is a transparent comparison of phishing email classifiers and practical lessons about false negatives, data quality, and the feasibility of adding ML-assisted guidance to PhishAware. Contributions will be stated based on completed experiments.</p></div><a class="btn primary" href="#analyzer">Try current rule-based analyzer →</a></div>
+    </section>
+
+<section class="section a7" id="assignment7">
+ <div class="section-head"><span class="eyebrow">ASSIGNMENT 7 · CYBERSECURITY RESEARCH & FILM</span><h2>Protecting Website Availability</h2><p>Investigating DoS and DDoS traffic using public intrusion-detection data, and telling the story through a short cybersecurity film.</p></div>
+ <div class="a7-grid"><article class="a7-card"><h3>Research question</h3><p>Can data-driven methods help identify abnormal network traffic associated with DoS and DDoS attacks before website availability is seriously affected?</p><p><b>Objective:</b> Compare benign and malicious traffic, identify predictive flow characteristics, and evaluate defensive detection approaches.</p></article><article class="a7-card"><h3>DoS vs. DDoS</h3><p><b>DoS:</b> An attempt to exhaust a service's resources or capacity from one primary source.</p><p><b>DDoS:</b> A coordinated disruption using many distributed sources, which can be harder to filter using simple source-based controls.</p><p>Both threaten <b>availability</b>, one of the three core cybersecurity principles.</p></article></div>
+ <div class="a7-card"><h3>Public research dataset: CIC-IDS2017</h3><p>Selected source: <a href="https://www.kaggle.com/datasets/dhoogla/cicids2017" target="_blank" rel="noopener">CIC-IDS2017 on Kaggle</a>, originally developed by the Canadian Institute for Cybersecurity. It contains labeled network-flow records, including benign activity, DDoS, and several DoS variants.</p><p><b>Labels:</b> BENIGN, DDoS, DoS Hulk, DoS GoldenEye, DoS slowloris, and DoS Slowhttptest, among other attack categories. <b>Candidate features:</b> Flow Duration, Total Fwd Packets, Total Backward Packets, Flow Bytes/s, Flow Packets/s, packet lengths, and inter-arrival times (feature availability depends on dataset file).</p><p><b>Research scope:</b> Only BENIGN, DDoS, and DoS-labeled records are considered for the binary comparison. Other attacks are excluded rather than incorrectly treated as normal traffic.</p></div>
+ <div class="a7-grid"><article class="a7-card"><h3>Normal network traffic</h3><p>Ordinary traffic often follows a mix of user-driven requests, response packets, varying session durations, and changing packet sizes. Its volume varies with legitimate activity, so high traffic alone is not proof of an attack.</p></article><article class="a7-card"><h3>Attack-associated behavior</h3><p>Possible indicators include sustained spikes in flows or packets, unusually short gaps between requests, many similar connections, high forward-to-backward packet imbalance, and bursts from multiple sources. No single feature proves an attack.</p></article></div>
+ <div class="a7-card"><h3>Traffic visualization — conceptual example</h3><p class="a7-note">The chart below is <strong>illustrative, not measured from CIC-IDS2017</strong>. It demonstrates a potential change in traffic volume; it must not be presented as an experimental result.</p>
+ <svg viewBox="0 0 800 280" role="img" aria-label="Illustrative time series: normal traffic fluctuates moderately; attack traffic shows a large sustained spike" class="a7-chart"><rect width="800" height="280" fill="#0d1728" rx="12"/><g stroke="#35465d" stroke-width="1"><path d="M60 30V230H760"/><path d="M60 80H760M60 130H760M60 180H760" stroke-dasharray="4 7"/></g><path d="M60 196 L125 189 L190 199 L255 182 L320 194 L385 186 L450 198 L515 188 L580 194 L645 184 L710 195 L760 190" stroke="#58cbb9" fill="none" stroke-width="4"/><path d="M60 197 L125 190 L190 198 L255 186 L320 191 L385 180 L450 95 L515 50 L580 60 L645 46 L710 57 L760 54" stroke="#ff947a" fill="none" stroke-width="4"/><g fill="#d5e1ef" font-size="15"><text x="60" y="255">Time →</text><text x="10" y="22">Traffic</text><text x="495" y="265" fill="#58cbb9">— Typical</text><text x="625" y="265" fill="#ff947a">— Attack scenario</text></g></svg>
+ <p><b>Volume comparison:</b> The hypothesis is that attack intervals may contain a higher concentration of flows, packets, or bytes than comparable benign intervals. The actual size of any difference must be calculated from the selected dataset.</p></div>
+ <div class="a7-card"><h3>Preprocessing and detection methodology</h3><ol><li>Load the downloaded CIC-IDS2017 CSV files and standardize column names.</li><li>Retain BENIGN, DDoS, and DoS categories; remove duplicate records and replace infinite values with missing values.</li><li>Convert numerical features, inspect missing values, and summarize distributions by traffic class.</li><li>Compare flow rate, packet rate, packet counts, and duration with charts and class-specific statistics.</li><li>Use a stratified train/test split and a median-imputation + random-forest classification pipeline, with a fixed random seed.</li><li>Report precision, recall, F1-score, and confusion matrix, including false negatives and false positives.</li></ol><p><a href="assignment7_analysis.py" download>Download reproducible Python analysis script</a> · <a href="ASSIGNMENT7_README.txt" download>Analysis instructions</a></p></div>
+ <div class="a7-grid"><article class="a7-card"><h3>Interpretation and availability</h3><p><b>Precision</b> describes how often an alert really corresponds to attack traffic. <b>Recall</b> measures how many actual attacks were caught. <b>F1</b> balances the two. The <b>confusion matrix</b> reveals missed attacks and false alarms.</p><p>Detection can support alerting, rate limiting, traffic filtering, and capacity planning, but detection alone does not guarantee uninterrupted service.</p></article><article class="a7-card"><h3>Results, limitations, and next steps</h3><p><b>Status:</b> Dataset and reproducible analysis method selected. <strong>No measured model scores are claimed yet</strong>; run the included script on downloaded CSV files to generate results and replace this note.</p><p>Limitations: dataset age, possible class imbalance, lab-generated traffic, concept drift, and differences between flow classification and live website monitoring.</p><p>Next: evaluate unseen time periods, examine false negatives, and compare a baseline threshold detector with the trained model.</p></article></div>
+<div class="a7-card">
+  <h3>AI Movie: PhishAware — Under Attack</h3>
+  <p>
+    This short AI-generated cybersecurity movie was created
+    using Google Flow and edited in CapCut. It features
+    two cybersecurity analysts investigating suspicious
+    network traffic and identifying a possible DDoS attack.
+  </p>
+
+  <video controls preload="metadata" playsinline
+         poster="assignment7_poster.png"
+         class="a7-video">
+    <source src="phishaware_movie.mp4" type="video/mp4">
+    Your browser does not support video playback.
+  </video>
+
+  <p class="a7-note">
+    <b>Final AI Movie:</b> A 16-second animated cybersecurity
+    film featuring AI-generated characters, spoken dialogue,
+    and an educational DDoS attack scenario.
+  </p>
+</div>
+
+ <div class="a7-card"><h3>Research conclusion</h3><p>Network-flow features provide a reasonable basis for investigating abnormal behavior linked to DoS and DDoS attacks. A defensible conclusion about how well a detector works requires evaluation on real labeled records. Combining traffic monitoring, careful classification, and layered protections can help security teams respond to threats against website availability.</p><p class="a7-note">Safety: This project uses publicly available research data and offline analysis only. No traffic attacks were performed.</p><p><b>Sources:</b> <a href="https://www.kaggle.com/datasets/dhoogla/cicids2017" target="_blank" rel="noopener">CIC-IDS2017 (Kaggle)</a> · <a href="https://www.unb.ca/cic/datasets/ids-2017.html" target="_blank" rel="noopener">Canadian Institute for Cybersecurity</a></p></div>
+</section>
+  <style>.newlab{margin:22px 0;padding:24px;border-radius:20px;background:linear-gradient(125deg,#102b52,#146d80);color:white}.newlab h2{color:white}.newlab p{color:#e0f2fe}.newwork pre{white-space:pre-wrap;background:#10243b;color:#d5f5ff;padding:14px;border-radius:10px}.newwork textarea{width:100%;box-sizing:border-box;min-height:110px;padding:12px;border:1px solid #94a3b8;border-radius:8px}.newwork table{width:100%;border-collapse:collapse}.newwork td,.newwork th{padding:10px;border-bottom:1px solid #94a3b8;text-align:left}.newwork .scrolltable{overflow:auto}.newwork .pendingnote{padding:14px;background:#fff7df;color:#78350f;border-radius:10px}.newwork select,.newwork input{max-width:100%;padding:10px}</style><section id="lab2" class="section newwork"><div class="newlab"><span>TECH 3498 · LAB 2</span><h2>Network Configuration & Connectivity</h2><p>Study guide, practical procedure and evidence collection</p></div><div class="cards three"><article class="card"><h3>Name resolution</h3><p>IPv4 loopback uses 127.0.0.1; IPv6 uses ::1. On macOS use ping6 -c 4 ::1. The hosts file maps names locally; unauthorized modification could redirect users to malicious destinations.</p><pre>ifconfig -a
+ping -c 4 127.0.0.1
+ping6 -c 4 ::1
+ping -c 4 localhost
+cat /private/etc/hosts</pre></article><article class="card"><h3>DNS and connections</h3><p>DNS resolves names to addresses. netstat displays network connections and statistics; lsof identifies processes associated with sockets.</p><pre>nslookup kean.edu
+netstat -an
+sudo lsof -iTCP</pre></article><article class="card"><h3>IPv6 and Wireshark</h3><p>Capture on your active interface and filter ipv6 or icmpv6. Record link-local and global addresses, replies and packet details. Temporary configuration changes must be restored.</p><pre>ifconfig en0
+# Wireshark display filter: ipv6</pre></article></div><article class="card"><h3>Lab report and observations</h3><p>Record OS, loopback results, hosts entries, DNS cache observations, active connection count, IPv6 addresses, capture evidence and restoration.</p><p class="pendingnote">Actual observations and screenshots are pending; this section describes expected concepts, not completed tests.</p><textarea id="lab2-notes" aria-label="Lab notes" placeholder="Enter actual results, issues, fixes and conclusions"></textarea><button class="btn primary" onclick="paExport('lab2')">Download lab notes</button></article></section><section id="lab3" class="section newwork"><div class="newlab"><span>TECH 3498 · LAB 3</span><h2>Network Transport & Applications</h2><p>Study guide, practical procedure and evidence collection</p></div><div class="cards three"><article class="card"><h3>ARP and ICMP</h3><p>ARP resolves IPv4 addresses to MAC addresses. Ethernet broadcast is ff:ff:ff:ff:ff:ff; destination precedes source and EtherType. ARP requests are broadcast; replies are typically unicast. ICMP carries echo requests and replies.</p><pre>arp -a
+# Wireshark filter: arp or icmp</pre></article><article class="card"><h3>UDP and TCP</h3><p>DNS commonly uses UDP destination port 53. TCP adds sequence and acknowledgment numbers, flags and window information for reliable delivery. Record actual source ports and checksums from captures.</p><pre>nslookup kean.edu
+# Wireshark filters: dns, udp, tcp</pre></article><article class="card"><h3>Secure applications</h3><p>SSH and SFTP normally use TCP port 22; HTTPS uses 443. Unlike Telnet and ordinary FTP, SSH protects credentials and content in transit. SMTP sends mail; POP3 and IMAP retrieve it. SPF, DKIM and DMARC help defend against sender spoofing.</p><pre>ssh username@obi2.kean.edu
+# Wireshark filter: ssh or tls</pre></article></div><article class="card"><h3>Lab report and observations</h3><p>Record gateway ping, ARP fields, DNS and TCP ports/checksums, authorized SSH/SFTP observations, email header analysis and account security review. Never publish credentials or private captures.</p><p class="pendingnote">Actual observations and screenshots are pending; this section describes expected concepts, not completed tests.</p><textarea id="lab3-notes" aria-label="Lab notes" placeholder="Enter actual results, issues, fixes and conclusions"></textarea><button class="btn primary" onclick="paExport('lab3')">Download lab notes</button></article></section><section id="lab4" class="section newwork"><div class="newlab"><span>TECH 3498 · LAB 4</span><h2>Port Scanning & System Vulnerability</h2><p>Study guide, practical procedure and evidence collection</p></div><div class="cards three"><article class="card"><h3>Host and service discovery</h3><p>Nmap identifies reachable hosts and exposed services. Only scan systems you own or have explicit permission to test. Use a local lab VM or localhost for practice.</p><pre>nmap -sn 127.0.0.1
+nmap -sT 127.0.0.1</pre></article><article class="card"><h3>Packet analysis</h3><p>TCP connect scans complete the handshake on open ports; SYN scans do not complete it. Closed ports typically respond with a reset. Compare actual scan durations and packet counts in an authorized lab.</p><pre># Wireshark filter: tcp</pre></article><article class="card"><h3>Vulnerability research</h3><p>CVE identifiers uniquely identify reported vulnerabilities. CVSS describes severity. Consult NVD, Microsoft MSRC and Rapid7 for CVE-2022-30216; verify scores and dates directly. Lynis audits system configuration and suggests hardening.</p><pre>lynis audit system</pre></article></div><article class="card"><h3>Lab report and observations</h3><p>Record authorized targets, host and port counts, scan times, packet counts, OS identification, CVE source findings and audit recommendations.</p><p class="pendingnote">Actual observations and screenshots are pending; this section describes expected concepts, not completed tests.</p><textarea id="lab4-notes" aria-label="Lab notes" placeholder="Enter actual results, issues, fixes and conclusions"></textarea><button class="btn primary" onclick="paExport('lab4')">Download lab notes</button></article></section><section id="assignment9" class="section newwork"><div class="newlab"><span>ASSIGNMENT 09 · RESEARCH</span><h2>Experimental Design &amp; Model Comparison</h2><p>Phishing email detection using supervised binary classification.</p></div><div class="cards three"><article class="card"><h3>Abstract (draft)</h3><p>This research investigates phishing email classification using traditional machine learning and a proposed hybrid detector. The study will compare detection quality and computational cost on consistent data splits. Findings will be finalized after experiments.</p></article><article class="card"><h3>Introduction</h3><p>Phishing exploits trust to obtain credentials and sensitive information. The research question is which model best balances detection, false alarms and efficiency on unseen emails.</p></article><article class="card"><h3>Related work (draft)</h3><p>Compare sparse text classifiers, tree ensembles and contextual language models. Investigate whether lexical features miss contextual deception and whether contextual models impose additional cost. Academic literature review and citations remain to be completed.</p></article></div><article class="card"><h3>Proposed algorithm: hybrid text and warning-sign classifier</h3><p>Combine TF-IDF text features with URL count, urgency terms and credential-request indicators. Train a classifier on combined features and compare against text-only baselines. Tune using validation F1; reserve test data for final evaluation. The proposed advantage is improved detection of deceptive cues, which must be tested.</p><pre>Audit labeled emails → Remove duplicates → Stratified train/validation/test split
+→ Fit preprocessing on training data → Train baseline and hybrid models
+→ Tune on validation data → Evaluate once on held-out test data</pre><p>Dataset: exact Kaggle email dataset and label mapping pending confirmation. Record class balance, sample count, seed, preprocessing, training time and model settings. Use accuracy, precision, recall, F1, ROC-AUC, PR-AUC and false-positive rate.</p></article><article class="card"><h3>Model comparison plan</h3><div class="scrolltable"><table><thead><tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th></tr></thead><tbody><tr><td>Logistic Regression</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Decision Tree</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Random Forest</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Linear SVM</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>KNN</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Multinomial Naive Bayes</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Gradient Boosting</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>XGBoost</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>LightGBM</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>CatBoost</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Proposed hybrid</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table></div><p class="pendingnote">No experimental metrics supplied. Strongest baseline and hybrid improvement cannot yet be determined.</p></article></section><section id="assignment10" class="section newwork"><div class="newlab"><span>ASSIGNMENT 10 · EVALUATION</span><h2>Interactive Research Dashboard</h2><p>Import actual experimental results to compare model performance.</p></div><article class="card"><h3>Model performance explorer</h3><p>Upload a JSON array of model records with model, accuracy, precision, recall and f1 (values from 0 to 1). Optional train_f1 and test_f1 fields enable generalization comparison.</p><input type="file" id="pa-data" accept=".json,application/json"><label>Metric <select id="pa-metric"><option value="f1">F1</option><option value="accuracy">Accuracy</option><option value="precision">Precision</option><option value="recall">Recall</option><option value="train_f1">Training F1</option><option value="test_f1">Testing F1</option></select></label><p id="pa-status" role="status">Awaiting actual experimental data.</p><div id="pa-bars"></div></article><div class="cards three"><article class="card"><h3>Confusion matrix</h3><p>Pending held-out predictions. Report true positives, false positives, true negatives and false negatives.</p></article><article class="card"><h3>ROC and precision–recall</h3><p>Pending prediction probabilities. Plot ROC-AUC and PR curves to assess discrimination and class imbalance.</p></article><article class="card"><h3>Generalization</h3><p>Compare training and validation performance, learning curves and final test metrics. Investigate overfitting and underfitting.</p></article></div><article class="card"><h3>Experimental results and conclusion (pending)</h3><p>Compare the strongest baseline with the hybrid model, explain precision/recall trade-offs and computational costs, and identify limitations such as dataset bias, duplicate messages and evolving phishing tactics. No performance improvement is claimed until verified. Update the IEEE Overleaf paper with actual figures, captions, results and conclusions.</p></article></section><script>function paExport(id){const a=document.createElement('a');const u=URL.createObjectURL(new Blob([document.getElementById(id+'-notes').value],{type:'text/plain'}));a.href=u;a.download=id+'-notes.txt';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}(()=>{let rows=[];const f=document.getElementById('pa-data'),m=document.getElementById('pa-metric'),out=document.getElementById('pa-bars'),status=document.getElementById('pa-status');function render(){out.replaceChildren();const valid=rows.filter(r=>typeof r[m.value]==='number'&&r[m.value]>=0&&r[m.value]<=1).sort((a,b)=>b[m.value]-a[m.value]);status.textContent=valid.length?'Highest reported '+m.options[m.selectedIndex].text+': '+valid[0].model+' ('+(valid[0][m.value]*100).toFixed(2)+'%)':'No valid values for this metric.';for(const r of valid){const p=document.createElement('p');p.textContent=r.model+' — '+(r[m.value]*100).toFixed(2)+'%';const bar=document.createElement('progress');bar.max=1;bar.value=r[m.value];bar.style.width='100%';out.append(p,bar)}}f.addEventListener('change',async()=>{try{const x=JSON.parse(await f.files[0].text());if(!Array.isArray(x)||!x.length||x.some(r=>!r||typeof r.model!=='string'))throw Error();rows=x;render()}catch(e){rows=[];out.replaceChildren();status.textContent='Invalid JSON. Use an array of model records.'}});m.addEventListener('change',render)})();</script></main>
+
+  <button id="chatToggle" class="chat-toggle" aria-label="Open security chatbot">💬 <span>Chat with us</span></button>
+  <div id="chatBox" class="chat-box hidden">
+    <div class="chat-head"><div><b>🛡️ PhishAware Assistant</b><small>Cyber safety helper</small></div><button onclick="toggleChat()">×</button></div>
+    <div id="chatMessages" class="chat-messages"><div class="bot">Hi! 👋 How can I help you stay safer online?</div></div>
+    <div class="quick">
+      <button onclick="quickChat('phishing')">Phishing Signs</button>
+      <button onclick="quickChat('password')">Password Safety</button>
+      <button onclick="quickChat('link')">Suspicious Links</button>
+    </div>
+    <div class="chat-input">
+      <button id="micBtn" title="Voice demo">🎤</button>
+      <input id="chatInput" placeholder="Ask a cybersecurity question...">
+      <button onclick="sendChat()">➤</button>
+    </div>
+  </div>
+
+  <footer>
+    <div><b>🛡️ PhishAware</b><p>Think before you click.</p></div>
+    <p>Created by Anjolaoluwa Donna Dosu • Cybersecurity Awareness Project</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
